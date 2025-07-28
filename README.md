@@ -7,13 +7,15 @@ This repository contains the static website for Kings County Ultimate Disc Assoc
 The website is a simple static site built with HTML and Tailwind CSS:
 
 ```
-kcuda-website/
+kcuda/
 ├── index.html           # Main HTML file
 ├── images/              # Image directory
 │   ├── about.jpg        # About section image
 │   ├── disco.jpg        # Brooklyn Disco Tech team image  
 │   ├── hero.jpg         # Hero section background image
 │   └── support.jpg      # Brooklyn Tech Support team image
+├── wrangler.toml        # Cloudflare Pages configuration
+├── _redirects           # Netlify-style redirects file
 └── README.md            # This file
 ```
 
@@ -40,7 +42,29 @@ The site uses Tailwind CSS via CDN. Most styling is done with Tailwind utility c
 
 ## Deployment
 
-This site is deployed using Cloudflare Pages.
+This site is automatically deployed to Cloudflare Pages using Git hooks:
+
+- **Live URL**: https://kcuda.pages.dev
+- **Automatic deployment**: Every commit to the `main` branch triggers a deployment
+- **Git hooks**: Located in `.git/hooks/post-commit` and `.git/hooks/pre-push`
+- **Configuration**: `wrangler.toml` contains Cloudflare Pages settings
+
+### Manual Deployment
+
+If needed, you can manually deploy using:
+
+```bash
+npx wrangler pages deploy . --project-name=kcuda
+```
+
+### Setting Up Git Hooks (if cloning fresh)
+
+The Git hooks are already configured, but if you need to set them up manually:
+
+```bash
+chmod +x .git/hooks/post-commit
+chmod +x .git/hooks/pre-push
+```
 
 ## Local Development
 
@@ -49,7 +73,8 @@ To work on the site locally:
 1. Clone this repository
 2. Open `index.html` in your browser to preview changes
 3. Make edits to HTML or images as needed
-4. Commit and push changes to deploy
+4. Commit changes (this automatically triggers deployment via Git hooks)
+5. Push to GitHub to sync with remote repository
 
 ## Contact
 
