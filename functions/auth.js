@@ -3,8 +3,18 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   
   try {
-    const formData = await request.formData();
-    const password = formData.get('password');
+    // Handle both form data and URL-encoded data
+    const contentType = request.headers.get('content-type') || '';
+    let password;
+    
+    if (contentType.includes('application/x-www-form-urlencoded')) {
+      const text = await request.text();
+      const params = new URLSearchParams(text);
+      password = params.get('password');
+    } else {
+      const formData = await request.formData();
+      password = formData.get('password');
+    }
     
     if (!password) {
       return new Response('Password required', { status: 400 });
@@ -35,6 +45,6 @@ export async function onRequestPost(context) {
     }
     
   } catch (error) {
-    return new Response('Server error', { status: 500 });
+    return new Response(`Server error: ${error.message}`, { status: 500 });
   }
 }
