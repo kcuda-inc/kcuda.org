@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Login - KCUDA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-2xl p-8 max-w-md w-full mx-4">
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-bold text-indigo-600 mb-2">KCUDA</h1>
+            <h2 class="text-xl font-semibold text-gray-800 mb-2">Members Area</h2>
+            <p class="text-gray-600">Please enter your password to continue</p>
+        </div>
+        
+        <form id="loginForm" method="POST" action="/auth">
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" 
+                    placeholder="Enter password"
+                    required
+                >
+            </div>
+            
+            <div id="errorMessage" class="mb-4 text-red-600 text-sm hidden">
+                <!-- Error message will be shown here -->
+            </div>
+            
+            <button 
+                type="submit" 
+                id="submitBtn"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+            >
+                Access Members Area
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+            <a href="index.html" class="text-sm text-indigo-600 hover:text-indigo-800">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const errorDiv = document.getElementById('errorMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const passwordInput = document.getElementById('password');
+            
+            // Clear previous errors
+            errorDiv.classList.add('hidden');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Verifying...';
+            
+            try {
+                const formData = new FormData(this);
+                const response = await fetch('/auth', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    // Redirect to members page on success
+                    window.location.href = '/members.html';
+                } else {
+                    // Show error message
+                    const errorText = await response.text();
+                    errorDiv.textContent = errorText || 'Invalid password. Please try again.';
+                    errorDiv.classList.remove('hidden');
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Connection error. Please try again.';
+                errorDiv.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Access Members Area';
+            }
+        });
+        
+        // Focus password input on page load
+        document.getElementById('password').focus();
+    </script>
+</body>
+</html>

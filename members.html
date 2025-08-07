@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Area - KCUDA</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-indigo-600">KCUDA</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="index.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Home</a>
+                    <button id="logoutBtn" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Protected Page Content -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8 text-indigo-600">Members Area</h1>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Team Resources</h2>
+                <p class="text-gray-700 mb-4">Welcome to the members-only section. Here you can find:</p>
+                
+                <ul class="list-disc pl-6 space-y-2 mb-6">
+                    <li>Practice schedules and updates</li>
+                    <li>Team announcements</li>
+                    <li>Contact information</li>
+                    <li>Internal documents</li>
+                </ul>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <p class="text-sm text-blue-700">
+                                <strong>Note:</strong> This content is only accessible to authorized team members. Please do not share login credentials.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4">Recent Updates</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-indigo-400 pl-4">
+                        <h3 class="font-semibold text-gray-800">Practice Schedule Update</h3>
+                        <p class="text-gray-600 text-sm">January 5, 2025</p>
+                        <p class="text-gray-700 mt-1">Updated winter practice schedule with new field locations.</p>
+                    </div>
+                    
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h3 class="font-semibold text-gray-800">Tournament Registration Open</h3>
+                        <p class="text-gray-600 text-sm">January 3, 2025</p>
+                        <p class="text-gray-700 mt-1">Registration is now open for the Spring Championship tournament.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-4">&copy; 2025 Kings County Ultimate Disc Association (KCUDA)</p>
+                <p class="text-gray-400">Members Area</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', async function() {
+            try {
+                // Clear the authentication cookie
+                document.cookie = 'kcuda_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                
+                // Redirect to home page
+                window.location.href = '/index.html';
+            } catch (error) {
+                // Fallback: just redirect to home
+                window.location.href = '/index.html';
+            }
+        });
+    </script>
+</body>
+</html>
