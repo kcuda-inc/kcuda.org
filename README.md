@@ -76,6 +76,10 @@ To work on the site locally:
 4. Commit changes (this automatically triggers deployment via Git hooks)
 5. Push to GitHub to sync with remote repository
 
+## Members Area
+
+The site includes a secure members-only area with server-side authentication using Cloudflare Pages Functions. See `SECURITY.md` for setup instructions.
+
 ## Contact
 
 For questions about KCUDA or this website, contact:
