@@ -31,4 +31,16 @@ URL:https://kcuda.org/tournaments/hucksgiving.html
 STATUS:CONFIRMED
 END:VEVENT
 
+BEGIN:VEVENT
+UID:mid-winter-hat-2025@kcuda.org
+DTSTAMP:20251205T000000Z
+DTSTART:20251229T150000Z
+DTEND:20251229T210000Z
+SUMMARY:Mid-Winter Hat Tournament
+DESCRIPTION:A fun day of mixed gender youth ultimate frisbee! Open to 7th-12th grade players. Registration opening soon. More info: https://kcuda.org/tournaments/mid-winter-hat.html
+LOCATION:Prospect Park Parade Grounds, Brooklyn, NY 11215
+URL:https://kcuda.org/tournaments/mid-winter-hat.html
+STATUS:CONFIRMED
+END:VEVENT
+
 END:VCALENDAR
