@@ -63,18 +63,9 @@
             
             <div class="bg-white rounded-lg shadow-lg p-8">
                 <h2 class="text-2xl font-bold mb-4">Recent Updates</h2>
-                <div class="space-y-4">
-                    <div class="border-l-4 border-indigo-400 pl-4">
-                        <h3 class="font-semibold text-gray-800">Practice Schedule Update</h3>
-                        <p class="text-gray-600 text-sm">January 5, 2025</p>
-                        <p class="text-gray-700 mt-1">Updated winter practice schedule with new field locations.</p>
-                    </div>
-                    
-                    <div class="border-l-4 border-green-400 pl-4">
-                        <h3 class="font-semibold text-gray-800">Tournament Registration Open</h3>
-                        <p class="text-gray-600 text-sm">January 3, 2025</p>
-                        <p class="text-gray-700 mt-1">Registration is now open for the Spring Championship tournament.</p>
-                    </div>
+                <div id="recent-updates" class="space-y-4">
+                    <!-- Updates will be loaded here by JavaScript -->
+                    <div class="text-center text-gray-500 py-4">Loading updates...</div>
                 </div>
             </div>
         </div>
@@ -96,7 +87,7 @@
             try {
                 // Clear the authentication cookie
                 document.cookie = 'kcuda_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-                
+
                 // Redirect to home page
                 window.location.href = '/index.html';
             } catch (error) {
@@ -104,6 +95,72 @@
                 window.location.href = '/index.html';
             }
         });
+
+        // Load and display recent updates
+        async function loadRecentUpdates() {
+            try {
+                const response = await fetch('/data/member-updates.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load updates');
+                }
+
+                const data = await response.json();
+                const updatesContainer = document.getElementById('recent-updates');
+
+                if (!data.updates || data.updates.length === 0) {
+                    updatesContainer.innerHTML = '<div class="text-center text-gray-500 py-4">No recent updates</div>';
+                    return;
+                }
+
+                // Sort updates by date (newest first)
+                const sortedUpdates = data.updates.sort((a, b) =>
+                    new Date(b.date) - new Date(a.date)
+                );
+
+                // Limit to 5 most recent updates
+                const recentUpdates = sortedUpdates.slice(0, 5);
+
+                // Build HTML for updates
+                let html = '';
+                recentUpdates.forEach(update => {
+                    const category = data.categories[update.category] || data.categories.general;
+                    const colorMap = {
+                        'indigo': 'border-indigo-400',
+                        'green': 'border-green-400',
+                        'purple': 'border-purple-400',
+                        'red': 'border-red-400',
+                        'blue': 'border-blue-400'
+                    };
+                    const borderColor = colorMap[category.color] || 'border-gray-400';
+
+                    // Format date
+                    const date = new Date(update.date);
+                    const formattedDate = date.toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+
+                    html += `
+                        <div class="border-l-4 ${borderColor} pl-4">
+                            <h3 class="font-semibold text-gray-800">${category.icon} ${update.title}</h3>
+                            <p class="text-gray-600 text-sm">${formattedDate}</p>
+                            <p class="text-gray-700 mt-1">${update.message}</p>
+                        </div>
+                    `;
+                });
+
+                updatesContainer.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading updates:', error);
+                document.getElementById('recent-updates').innerHTML =
+                    '<div class="text-center text-gray-500 py-4">Unable to load updates</div>';
+            }
+        }
+
+        // Load updates when page loads
+        loadRecentUpdates();
     </script>
 </body>
 </html>

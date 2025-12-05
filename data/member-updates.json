@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "updates": [
+    {
+      "id": "update-003",
+      "title": "Calendar Now Available",
+      "date": "2025-12-05",
+      "message": "View all practices, games, tournaments, and track workouts in the new Calendar section. Filter by event type and team!",
+      "category": "feature",
+      "color": "purple"
+    },
+    {
+      "id": "update-002",
+      "title": "Practice Schedule Update",
+      "date": "2025-01-05",
+      "message": "Updated winter practice schedule with new field locations. Check the calendar for details.",
+      "category": "schedule",
+      "color": "indigo"
+    },
+    {
+      "id": "update-001",
+      "title": "Tournament Registration Open",
+      "date": "2025-01-03",
+      "message": "Registration is now open for the Spring Championship tournament.",
+      "category": "tournament",
+      "color": "green"
+    }
+  ],
+  "categories": {
+    "schedule": {
+      "label": "Schedule",
+      "color": "indigo",
+      "icon": "📅"
+    },
+    "tournament": {
+      "label": "Tournament",
+      "color": "green",
+      "icon": "🏆"
+    },
+    "roster": {
+      "label": "Roster",
+      "color": "purple",
+      "icon": "👥"
+    },
+    "important": {
+      "label": "Important",
+      "color": "red",
+      "icon": "⚠️"
+    },
+    "general": {
+      "label": "General",
+      "color": "blue",
+      "icon": "📢"
+    },
+    "feature": {
+      "label": "New Feature",
+      "color": "purple",
+      "icon": "✨"
+    }
+  }
+}
