@@ -539,6 +539,23 @@
       "status": "confirmed"
     },
     {
+      "id": "local-tournament-battle-hudson-2026",
+      "uid": "local-tournament-battle-hudson-2026",
+      "title": "🏆 Battle of the Hudson",
+      "description": "Warmup tournament in Red Hook, Brooklyn",
+      "startDate": "2026-03-08T13:00:00.000Z",
+      "endDate": "2026-03-08T21:00:00.000Z",
+      "allDay": false,
+      "location": "Red Hook, Brooklyn, NY",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
       "id": "google-70C8B3F7-CEDD-43",
       "uid": "70C8B3F7-CEDD-433A-8AFF-0F55F93CFCC4",
       "title": "🥏 YULA",
@@ -570,6 +587,176 @@
         "enabled": false
       },
       "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-nyc-kickoff-2026",
+      "uid": "local-tournament-nyc-kickoff-2026",
+      "title": "🏆 NYC Kick Off",
+      "description": "NYC Kick Off tournament",
+      "startDate": "2026-03-28T13:00:00.000Z",
+      "endDate": "2026-03-28T21:00:00.000Z",
+      "allDay": false,
+      "location": "Van Cortlandt Park, Bronx, NY",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-spring-fling-day1-2026",
+      "uid": "local-tournament-spring-fling-day1-2026",
+      "title": "🏆 Spring Fling - Day 1",
+      "description": "Spring Fling tournament in Freehold, NJ",
+      "startDate": "2026-04-18T13:00:00.000Z",
+      "endDate": "2026-04-18T21:00:00.000Z",
+      "allDay": false,
+      "location": "Freehold, NJ",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-spring-fling-day2-2026",
+      "uid": "local-tournament-spring-fling-day2-2026",
+      "title": "🏆 Spring Fling - Day 2",
+      "description": "Spring Fling tournament in Freehold, NJ",
+      "startDate": "2026-04-19T13:00:00.000Z",
+      "endDate": "2026-04-19T21:00:00.000Z",
+      "allDay": false,
+      "location": "Freehold, NJ",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-amherst-day1-2026",
+      "uid": "local-tournament-amherst-day1-2026",
+      "title": "🏆 Amherst Invite - Day 1",
+      "description": "Amherst Invite tournament",
+      "startDate": "2026-05-02T13:00:00.000Z",
+      "endDate": "2026-05-02T21:00:00.000Z",
+      "allDay": false,
+      "location": "Amherst, MA",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-amherst-day2-2026",
+      "uid": "local-tournament-amherst-day2-2026",
+      "title": "🏆 Amherst Invite - Day 2",
+      "description": "Amherst Invite tournament",
+      "startDate": "2026-05-03T13:00:00.000Z",
+      "endDate": "2026-05-03T21:00:00.000Z",
+      "allDay": false,
+      "location": "Amherst, MA",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-city-championships-2026",
+      "uid": "local-tournament-city-championships-2026",
+      "title": "🏆 City Championships",
+      "description": "NYC City Championships",
+      "startDate": "2026-05-10T13:00:00.000Z",
+      "endDate": "2026-05-10T21:00:00.000Z",
+      "allDay": false,
+      "location": "Van Cortlandt Park, Bronx, NY",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-pvi-day1-2026",
+      "uid": "local-tournament-pvi-day1-2026",
+      "title": "🏆 PVI - Day 1",
+      "description": "PVI tournament in Easthampton",
+      "startDate": "2026-05-16T13:00:00.000Z",
+      "endDate": "2026-05-16T21:00:00.000Z",
+      "allDay": false,
+      "location": "Easthampton, MA",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-pvi-day2-2026",
+      "uid": "local-tournament-pvi-day2-2026",
+      "title": "🏆 PVI - Day 2",
+      "description": "PVI tournament in Easthampton",
+      "startDate": "2026-05-17T13:00:00.000Z",
+      "endDate": "2026-05-17T21:00:00.000Z",
+      "allDay": false,
+      "location": "Easthampton, MA",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-ny-state-day1-2026",
+      "uid": "local-tournament-ny-state-day1-2026",
+      "title": "🏆 NY State Championship - Day 1",
+      "description": "New York State Championship",
+      "startDate": "2026-05-23T13:00:00.000Z",
+      "endDate": "2026-05-23T21:00:00.000Z",
+      "allDay": false,
+      "location": "Albany, NY",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-tournament-ny-state-day2-2026",
+      "uid": "local-tournament-ny-state-day2-2026",
+      "title": "🏆 NY State Championship - Day 2",
+      "description": "New York State Championship",
+      "startDate": "2026-05-24T13:00:00.000Z",
+      "endDate": "2026-05-24T21:00:00.000Z",
+      "allDay": false,
+      "location": "Albany, NY",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
       "status": "confirmed"
     }
   ],
