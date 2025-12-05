@@ -1,0 +1,99 @@
+BEGIN:VCALENDAR
+PRODID:-//KCUDA//Calendar Export//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:KCUDA Schedule
+X-WR-TIMEZONE:America/New_York
+X-WR-CALDESC:KCUDA practices, games, tournaments, and workouts
+BEGIN:VEVENT
+UID:local-track-workout-2025-12-09
+SUMMARY:🏃 Track Workout
+DTSTAMP:20251205T183039Z
+DTSTART:20251209T220000Z
+DTEND:20251209T231500Z
+DESCRIPTION:Monday track workout - open to all players
+LOCATION:McCarren Park Track\, Lorimer Street\, Union & Driggs Avenue\, Bro
+ oklyn\, NY 11211
+STATUS:CONFIRMED
+CATEGORIES:Both Teams\,Track Workout
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2025-12-10
+SUMMARY:🥏 A Team + Winter Squad Practice
+DTSTAMP:20251205T183039Z
+DTSTART:20251210T213000Z
+DTEND:20251210T233000Z
+DESCRIPTION:Tuesday practice for A Team and Winter Squad invitees
+LOCATION:McCarren Park\, Brooklyn\, NY
+STATUS:CONFIRMED
+CATEGORIES:A Team (Varsity)\,Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2025-12-12
+SUMMARY:🥏 A Team + Winter Squad Practice
+DTSTAMP:20251205T183039Z
+DTSTART:20251212T213000Z
+DTEND:20251212T233000Z
+DESCRIPTION:Thursday practice for A Team and Winter Squad invitees
+LOCATION:McCarren Park\, Brooklyn\, NY
+STATUS:CONFIRMED
+CATEGORIES:A Team (Varsity)\,Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2025-12-14
+SUMMARY:🥏 A Team + Winter Squad Practice
+DTSTAMP:20251205T183039Z
+DTSTART:20251214T190000Z
+DTEND:20251214T213000Z
+DESCRIPTION:Saturday practice for A Team and Winter Squad invitees
+LOCATION:Prospect Park Parade Grounds Field 8\, Brooklyn\, NY
+STATUS:CONFIRMED
+CATEGORIES:A Team (Varsity)\,Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:local-track-workout-2025-12-16
+SUMMARY:🏃 Track Workout
+DTSTAMP:20251205T183039Z
+DTSTART:20251216T220000Z
+DTEND:20251216T231500Z
+DESCRIPTION:Monday track workout - open to all players
+LOCATION:McCarren Park Track\, Lorimer Street\, Union & Driggs Avenue\, Bro
+ oklyn\, NY 11211
+STATUS:CONFIRMED
+CATEGORIES:Both Teams\,Track Workout
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2025-12-17
+SUMMARY:🥏 A Team + Winter Squad Practice
+DTSTAMP:20251205T183039Z
+DTSTART:20251217T213000Z
+DTEND:20251217T233000Z
+DESCRIPTION:Tuesday practice for A Team and Winter Squad invitees
+LOCATION:McCarren Park\, Brooklyn\, NY
+STATUS:CONFIRMED
+CATEGORIES:A Team (Varsity)\,Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2026-01-06
+SUMMARY:🥏 A Team + Winter Squad Practice Resumes
+DTSTAMP:20251205T183039Z
+DTSTART:20260106T220000Z
+DTEND:20260106T231500Z
+DESCRIPTION:First practice after holiday break for A Team and Winter Squad
+LOCATION:TBD
+STATUS:CONFIRMED
+CATEGORIES:A Team (Varsity)\,Practice
+END:VEVENT
+BEGIN:VEVENT
+UID:local-practice-2026-01-27
+SUMMARY:🥏 B Team Practice Resumes
+DTSTAMP:20251205T183039Z
+DTSTART:20260127T213000Z
+DTEND:20260127T233000Z
+DESCRIPTION:First practice after holiday break for B Team and new players
+LOCATION:TBD
+STATUS:CONFIRMED
+CATEGORIES:B Team (JV)\,Practice
+END:VEVENT
+END:VCALENDAR

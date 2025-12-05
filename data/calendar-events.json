@@ -4,35 +4,22 @@
   "calendarSource": "https://calendar.google.com/calendar/ical/f084ad195358602b56dafa6db63eeaf1914b7f43b4cd7ee8d080f29f218dd378%40group.calendar.google.com/public/basic.ics",
   "events": [
     {
-      "id": "google-0jqob271cs25b3q9",
-      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
-      "title": "🥏 Tech Support Closed Try outs (Invitation only)",
+      "id": "google-58hinoasrhrnb6us",
+      "uid": "58hinoasrhrnb6usk56klbs9bh@google.com",
+      "title": "🥏 Coconut Classic",
       "description": "",
-      "startDate": "2025-11-06T21:30:00.000Z",
-      "endDate": "2025-11-06T23:30:00.000Z",
+      "startDate": "2025-11-01T12:00:00.000Z",
+      "endDate": "2025-11-01T21:00:00.000Z",
       "allDay": false,
-      "location": "Parade Ground Field 1, Prospect Park Alliance, 95 Prospect Park W, Brooklyn, NY 11215, USA",
+      "location": "Turkey Swamp Park, 200 Georgia Rd, Freehold Township, NJ 07728, USA",
       "type": "practice",
       "team": "both",
       "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0jqob271cs25b3q9",
-      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
-      "title": "🥏 Tech Support Alumni Game",
-      "description": "",
-      "startDate": "2025-11-25T22:00:00.000Z",
-      "endDate": "2025-11-26T00:00:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
-      "type": "game",
-      "team": "both",
-      "recurring": {
-        "enabled": false
+        "enabled": true,
+        "rule": "FREQ=DAILY;COUNT=2",
+        "until": null,
+        "freq": "DAILY",
+        "byday": null
       },
       "source": "google-calendar",
       "status": "confirmed"
@@ -55,107 +42,14 @@
       "status": "confirmed"
     },
     {
-      "id": "google-BDA22161-6178-47",
-      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
-      "title": "CANCELLED: 🥏 Tech Support Practice",
-      "description": "",
-      "startDate": "2025-12-02T21:30:00.000Z",
-      "endDate": "2025-12-02T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
       "id": "google-0jqob271cs25b3q9",
       "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
-      "title": "🥏 Tech Support Practice",
+      "title": "🥏 Tech Support Closed Try outs (Invitation only)",
       "description": "",
-      "startDate": "2025-11-20T21:30:00.000Z",
-      "endDate": "2025-11-20T23:30:00.000Z",
+      "startDate": "2025-11-06T21:30:00.000Z",
+      "endDate": "2025-11-06T23:30:00.000Z",
       "allDay": false,
-      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-58hinoasrhrnb6us",
-      "uid": "58hinoasrhrnb6usk56klbs9bh@google.com",
-      "title": "🥏 Coconut Classic",
-      "description": "",
-      "startDate": "2025-11-01T12:00:00.000Z",
-      "endDate": "2025-11-01T21:00:00.000Z",
-      "allDay": false,
-      "location": "Turkey Swamp Park, 200 Georgia Rd, Freehold Township, NJ 07728, USA",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=DAILY;COUNT=2",
-        "until": null,
-        "freq": "DAILY",
-        "byday": null
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-BDA22161-6178-47",
-      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
-      "title": "🥏 Tech Support Practice",
-      "description": "",
-      "startDate": "2025-12-02T21:30:00.000Z",
-      "endDate": "2025-12-02T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=TU,TH;UNTIL=20251220T045959Z;WKST=SU",
-        "until": "20251220T045959Z",
-        "freq": "WEEKLY",
-        "byday": "TU,TH"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-C71B9937-B65C-40",
-      "uid": "C71B9937-B65C-40D6-80CE-6DD9895E2E9E",
-      "title": "🥏 Hucksgiving Showdown",
-      "description": "",
-      "startDate": "2025-11-22T14:00:00.000Z",
-      "endDate": "2025-11-22T22:00:00.000Z",
-      "allDay": false,
-      "location": "Prospect Park Parade Grounds\n115 Parkside Ave, Brooklyn, NY  11226, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-95998ECB-9412-42",
-      "uid": "95998ECB-9412-42C5-B562-F5397333A5B7",
-      "title": "🥏 YULA",
-      "description": "",
-      "startDate": "2026-03-22T12:00:00.000Z",
-      "endDate": "2026-03-22T20:00:00.000Z",
-      "allDay": false,
-      "location": "Arlington, VA\nUnited States",
+      "location": "Parade Ground Field 1, Prospect Park Alliance, 95 Prospect Park W, Brooklyn, NY 11215, USA",
       "type": "practice",
       "team": "both",
       "recurring": {
@@ -182,12 +76,254 @@
       "status": "confirmed"
     },
     {
+      "id": "google-0jqob271cs25b3q9",
+      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
+      "title": "🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-11-20T21:30:00.000Z",
+      "endDate": "2025-11-20T23:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-C71B9937-B65C-40",
+      "uid": "C71B9937-B65C-40D6-80CE-6DD9895E2E9E",
+      "title": "🥏 Hucksgiving Showdown",
+      "description": "",
+      "startDate": "2025-11-22T14:00:00.000Z",
+      "endDate": "2025-11-22T22:00:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds\n115 Parkside Ave, Brooklyn, NY  11226, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0jqob271cs25b3q9",
+      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
+      "title": "🥏 Tech Support Alumni Game",
+      "description": "",
+      "startDate": "2025-11-25T22:00:00.000Z",
+      "endDate": "2025-11-26T00:00:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
+      "type": "game",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-BDA22161-6178-47",
+      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
+      "title": "CANCELLED: 🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-12-02T21:30:00.000Z",
+      "endDate": "2025-12-02T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-BDA22161-6178-47",
+      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
+      "title": "🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-12-02T21:30:00.000Z",
+      "endDate": "2025-12-02T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=TU,TH;UNTIL=20251220T045959Z;WKST=SU",
+        "until": "20251220T045959Z",
+        "freq": "WEEKLY",
+        "byday": "TU,TH"
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-track-2025-12-09",
+      "uid": "local-track-workout-2025-12-09",
+      "title": "🏃 Track Workout",
+      "description": "Monday track workout - open to all players",
+      "startDate": "2025-12-09T22:00:00.000Z",
+      "endDate": "2025-12-09T23:15:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track, Lorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211",
+      "type": "track-workout",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2025-12-10",
+      "uid": "local-practice-2025-12-10",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Tuesday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-10T21:30:00.000Z",
+      "endDate": "2025-12-10T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2025-12-12",
+      "uid": "local-practice-2025-12-12",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Thursday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-12T21:30:00.000Z",
+      "endDate": "2025-12-12T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2025-12-14",
+      "uid": "local-practice-2025-12-14",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Saturday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-14T19:00:00.000Z",
+      "endDate": "2025-12-14T21:30:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds Field 8, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-track-2025-12-16",
+      "uid": "local-track-workout-2025-12-16",
+      "title": "🏃 Track Workout",
+      "description": "Monday track workout - open to all players",
+      "startDate": "2025-12-16T22:00:00.000Z",
+      "endDate": "2025-12-16T23:15:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track, Lorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211",
+      "type": "track-workout",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2025-12-17",
+      "uid": "local-practice-2025-12-17",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Tuesday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-17T21:30:00.000Z",
+      "endDate": "2025-12-17T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2026-01-06",
+      "uid": "local-practice-2026-01-06",
+      "title": "🥏 A Team + Winter Squad Practice Resumes",
+      "description": "First practice after holiday break for A Team and Winter Squad",
+      "startDate": "2026-01-06T22:00:00.000Z",
+      "endDate": "2026-01-06T23:15:00.000Z",
+      "allDay": false,
+      "location": "TBD",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
+      "id": "local-practice-2026-01-27",
+      "uid": "local-practice-2026-01-27",
+      "title": "🥏 B Team Practice Resumes",
+      "description": "First practice after holiday break for B Team and new players",
+      "startDate": "2026-01-27T21:30:00.000Z",
+      "endDate": "2026-01-27T23:30:00.000Z",
+      "allDay": false,
+      "location": "TBD",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "local",
+      "status": "confirmed"
+    },
+    {
       "id": "google-70C8B3F7-CEDD-43",
       "uid": "70C8B3F7-CEDD-433A-8AFF-0F55F93CFCC4",
       "title": "🥏 YULA",
       "description": "",
       "startDate": "2026-03-21T12:00:00.000Z",
       "endDate": "2026-03-21T20:00:00.000Z",
+      "allDay": false,
+      "location": "Arlington, VA\nUnited States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-95998ECB-9412-42",
+      "uid": "95998ECB-9412-42C5-B562-F5397333A5B7",
+      "title": "🥏 YULA",
+      "description": "",
+      "startDate": "2026-03-22T12:00:00.000Z",
+      "endDate": "2026-03-22T20:00:00.000Z",
       "allDay": false,
       "location": "Arlington, VA\nUnited States",
       "type": "practice",
