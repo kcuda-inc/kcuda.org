@@ -6,6 +6,7 @@ const ICAL = require('ical.js');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'calendar-events.json');
 const OUTPUT_FILE = path.join(__dirname, '..', 'calendar.ics');
+const DELTA_FILE = path.join(__dirname, '..', 'calendar-delta.ics');
 
 function loadCalendarData() {
   if (!fs.existsSync(DATA_FILE)) {
@@ -22,19 +23,24 @@ function formatDateToICAL(dateString) {
   return ICAL.Time.fromJSDate(date, true);
 }
 
-function generateICS(calendarData) {
+function generateICS(calendarData, deltaOnly = false) {
   // Create calendar component
   const cal = new ICAL.Component(['vcalendar', [], []]);
   cal.updatePropertyWithValue('prodid', '-//KCUDA//Calendar Export//EN');
   cal.updatePropertyWithValue('version', '2.0');
   cal.updatePropertyWithValue('calscale', 'GREGORIAN');
   cal.updatePropertyWithValue('method', 'PUBLISH');
-  cal.updatePropertyWithValue('x-wr-calname', 'KCUDA Schedule');
+  cal.updatePropertyWithValue('x-wr-calname', deltaOnly ? 'KCUDA Schedule (New Events)' : 'KCUDA Schedule');
   cal.updatePropertyWithValue('x-wr-timezone', 'America/New_York');
-  cal.updatePropertyWithValue('x-wr-caldesc', 'KCUDA practices, games, tournaments, and workouts');
+  cal.updatePropertyWithValue('x-wr-caldesc', deltaOnly ? 'KCUDA new events only' : 'KCUDA practices, games, tournaments, and workouts');
 
   // Filter to only local events (not already in Google Calendar)
-  const localEvents = calendarData.events.filter(e => e.source === 'local');
+  let localEvents = calendarData.events.filter(e => e.source === 'local');
+
+  // If delta only, filter to events that don't have a Google Calendar UID yet
+  if (deltaOnly) {
+    localEvents = localEvents.filter(e => !e.uid.includes('@google.com'));
+  }
 
   if (localEvents.length === 0) {
     console.log('ℹ️  No local events to export (all events are from Google Calendar)');
@@ -99,8 +105,9 @@ async function main() {
     console.log('📂 Loading calendar data...');
     const calendarData = loadCalendarData();
 
-    console.log('🔨 Generating iCalendar file...');
-    const icsContent = generateICS(calendarData);
+    // Generate full export
+    console.log('🔨 Generating full iCalendar file...');
+    const icsContent = generateICS(calendarData, false);
 
     if (!icsContent) {
       console.log('\n✅ Export complete (no local events to export)');
@@ -108,14 +115,31 @@ async function main() {
     }
 
     fs.writeFileSync(OUTPUT_FILE, icsContent, 'utf8');
+    console.log(`   ✅ Full calendar: ${OUTPUT_FILE}`);
+
+    // Generate delta export (only new events)
+    console.log('🔨 Generating delta iCalendar file (new events only)...');
+    const deltaContent = generateICS(calendarData, true);
+
+    if (deltaContent) {
+      fs.writeFileSync(DELTA_FILE, deltaContent, 'utf8');
+      console.log(`   ✅ Delta calendar: ${DELTA_FILE}`);
+    } else {
+      console.log('   ℹ️  No new events to export in delta file');
+    }
 
     console.log('\n✅ Export complete!');
-    console.log(`💾 iCalendar file saved to: ${OUTPUT_FILE}`);
-    console.log('\n📝 Next steps:');
+    console.log('\n📝 Two files generated:');
+    console.log('   📄 calendar.ics - All local events');
+    console.log('   📄 calendar-delta.ics - Only NEW events (prevents duplicates)');
+    console.log('\n💡 Recommendation:');
+    console.log('   → Import calendar-delta.ics to avoid duplicates');
+    console.log('   → Use calendar.ics only for fresh imports');
+    console.log('\n📝 Import steps:');
     console.log('   1. Go to Google Calendar (https://calendar.google.com)');
     console.log('   2. Click the gear icon → Settings');
     console.log('   3. Click "Import & export" in the left sidebar');
-    console.log('   4. Click "Import" and select the calendar.ics file');
+    console.log('   4. Click "Import" and select calendar-delta.ics');
     console.log('   5. Select the KCUDA calendar as the destination');
     console.log('   6. Run "npm run calendar:sync" to pull the events back with Google Calendar UIDs\n');
 

@@ -3,9 +3,9 @@ PRODID:-//KCUDA//Calendar Export//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:KCUDA Schedule
+X-WR-CALNAME:KCUDA Schedule (New Events)
 X-WR-TIMEZONE:America/New_York
-X-WR-CALDESC:KCUDA practices, games, tournaments, and workouts
+X-WR-CALDESC:KCUDA new events only
 BEGIN:VEVENT
 UID:local-practice-2025-12-06
 SUMMARY:🥏 A Team + Winter Squad Practice
