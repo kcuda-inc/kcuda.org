@@ -94,6 +94,9 @@ function parseICalEvents(icalData) {
 
   const events = [];
 
+  // Only include events from November 2025 onwards
+  const cutoffDate = new Date('2025-11-01T00:00:00Z');
+
   for (const vevent of vevents) {
     const event = new ICAL.Event(vevent);
 
@@ -109,6 +112,11 @@ function parseICalEvents(icalData) {
                      startDate.getHours() === 0 &&
                      startDate.getMinutes() === 0 &&
                      (endDate - startDate) >= 86400000;
+
+    // Skip events older than November 2025
+    if (startDate < cutoffDate) {
+      continue;
+    }
 
     // Parse recurring rule if present
     const rruleProp = vevent.getFirstProperty('rrule');
