@@ -1,4 +1,12 @@
 {
+  "scripts": {
+    "calendar:sync": "node scripts/calendar-sync.js",
+    "calendar:export": "node scripts/calendar-export.js",
+    "calendar:list": "node scripts/calendar-list.js"
+  },
+  "dependencies": {
+    "ical.js": "^2.1.0"
+  },
   "devDependencies": {
     "wrangler": "^4.45.1"
   }

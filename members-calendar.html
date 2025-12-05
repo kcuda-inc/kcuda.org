@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - KCUDA Members</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e5e7eb;
+            border: 1px solid #e5e7eb;
+        }
+
+        .calendar-day-header {
+            background: #f9fafb;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.875rem;
+        }
+
+        .calendar-day {
+            background: white;
+            min-height: 100px;
+            padding: 0.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .calendar-day:hover {
+            background: #f9fafb;
+        }
+
+        .calendar-day.other-month {
+            background: #f9fafb;
+            color: #9ca3af;
+        }
+
+        .calendar-day.today {
+            background: #eff6ff;
+        }
+
+        .day-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+        }
+
+        .calendar-day.today .day-number {
+            color: #3b82f6;
+        }
+
+        .event-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .event-badge {
+            font-size: 0.625rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 2px 0;
+            display: inline-block;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .filter-checkbox {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-checkbox:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .calendar-grid {
+                display: none;
+            }
+
+            #calendar-view-toggle {
+                display: none;
+            }
+
+            #list-view {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html" class="text-2xl font-bold text-indigo-600">KCUDA</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="tournaments.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Tournaments</a>
+                    <a href="support.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Support</a>
+                    <a href="index.html#contact" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+                    <a href="board.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Board</a>
+                    <a href="members.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Members</a>
+                    <button id="logoutBtn" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">Practice & Game Calendar</h1>
+            <p class="text-xl mb-6">View upcoming practices, games, tournaments, and track workouts</p>
+
+            <!-- Filter Controls -->
+            <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                <div class="flex flex-wrap items-center gap-4 mb-4">
+                    <div class="font-semibold">Event Types:</div>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="checkbox" checked data-filter-type="practice" class="form-checkbox h-5 w-5 text-indigo-600">
+                        <span>🥏 Practices</span>
+                    </label>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="checkbox" checked data-filter-type="game" class="form-checkbox h-5 w-5 text-red-600">
+                        <span>⚡ Games</span>
+                    </label>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="checkbox" checked data-filter-type="tournament" class="form-checkbox h-5 w-5 text-purple-600">
+                        <span>🏆 Tournaments</span>
+                    </label>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="checkbox" checked data-filter-type="track-workout" class="form-checkbox h-5 w-5 text-green-600">
+                        <span>🏃 Track Workouts</span>
+                    </label>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <div class="font-semibold">Team:</div>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="radio" checked name="team-filter" data-filter-team="all" class="form-radio h-5 w-5 text-indigo-600">
+                        <span>All Teams</span>
+                    </label>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="radio" name="team-filter" data-filter-team="a-team" class="form-radio h-5 w-5 text-indigo-600">
+                        <span>A Team</span>
+                    </label>
+                    <label class="filter-checkbox flex items-center space-x-2">
+                        <input type="radio" name="team-filter" data-filter-team="b-team" class="form-radio h-5 w-5 text-indigo-600">
+                        <span>B Team</span>
+                    </label>
+
+                    <button id="calendar-view-toggle" class="ml-auto bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Switch to List View
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar View -->
+    <section id="calendar-view" class="py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Month Navigation -->
+            <div class="bg-white rounded-lg shadow-md p-4 mb-4 flex items-center justify-between">
+                <button id="prev-month" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    ← Previous
+                </button>
+                <h2 id="current-month" class="text-2xl font-bold text-gray-800">December 2025</h2>
+                <button id="next-month" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    Next →
+                </button>
+            </div>
+
+            <!-- Calendar Grid -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="calendar-grid" id="calendar-grid">
+                    <div class="calendar-day-header">Sun</div>
+                    <div class="calendar-day-header">Mon</div>
+                    <div class="calendar-day-header">Tue</div>
+                    <div class="calendar-day-header">Wed</div>
+                    <div class="calendar-day-header">Thu</div>
+                    <div class="calendar-day-header">Fri</div>
+                    <div class="calendar-day-header">Sat</div>
+                    <!-- Days will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- List View -->
+    <section id="list-view" class="py-8 px-4" style="display: none;">
+        <div class="max-w-4xl mx-auto">
+            <div id="list-content">
+                <!-- Events will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Detail Modal -->
+    <div id="event-modal" class="modal">
+        <div class="modal-content">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-t-lg">
+                <div class="flex justify-between items-start">
+                    <h2 id="modal-title" class="text-2xl font-bold">Event Title</h2>
+                    <button id="modal-close" class="text-white hover:text-gray-200 text-3xl leading-none">&times;</button>
+                </div>
+                <div id="modal-type-team" class="mt-2 text-sm opacity-90"></div>
+            </div>
+            <div class="p-6" id="modal-body">
+                <!-- Event details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-4">&copy; 2025 Kings County Ultimate Disc Association (KCUDA)</p>
+                <p class="text-gray-400">Members Area - Calendar</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let calendarData = null;
+        let currentMonth = new Date();
+        let currentView = 'calendar';
+        let filters = {
+            types: ['practice', 'game', 'tournament', 'track-workout'],
+            team: 'all'
+        };
+
+        // Load calendar data
+        async function loadCalendarData() {
+            try {
+                const response = await fetch('/data/calendar-events.json');
+                if (!response.ok) {
+                    throw new Error('Calendar data not found. Please run sync.');
+                }
+                calendarData = await response.json();
+                renderCurrentView();
+            } catch (error) {
+                console.error('Error loading calendar:', error);
+                document.getElementById('calendar-grid').innerHTML = `
+                    <div style="grid-column: 1 / -1; padding: 2rem; text-align: center; background: white;">
+                        <p style="color: #dc2626; font-weight: bold; margin-bottom: 0.5rem;">Unable to load calendar data</p>
+                        <p style="color: #6b7280; font-size: 0.875rem;">Please run "npm run calendar:sync" to initialize the calendar.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Expand recurring events for a date range
+        function expandRecurringEvent(event, startDate, endDate) {
+            if (!event.recurring || !event.recurring.enabled) {
+                return [event];
+            }
+
+            const instances = [];
+            const eventStart = new Date(event.startDate);
+            const eventEnd = new Date(event.endDate);
+            const duration = eventEnd - eventStart;
+
+            const rule = event.recurring.rule;
+            const freqMatch = rule.match(/FREQ=(\w+)/);
+            const bydayMatch = rule.match(/BYDAY=(\w+)/);
+
+            if (!freqMatch || freqMatch[1] !== 'WEEKLY' || !bydayMatch) {
+                return [event];
+            }
+
+            const dayMap = { SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6 };
+            const targetDay = dayMap[bydayMatch[1]];
+
+            let current = new Date(eventStart);
+            const maxDate = event.recurring.until ? new Date(event.recurring.until) : endDate;
+
+            while (current.getDay() !== targetDay && current < maxDate) {
+                current.setDate(current.getDate() + 1);
+            }
+
+            while (current <= maxDate && current <= endDate) {
+                if (current >= startDate) {
+                    const instanceEnd = new Date(current.getTime() + duration);
+                    instances.push({
+                        ...event,
+                        startDate: current.toISOString(),
+                        endDate: instanceEnd.toISOString(),
+                        isRecurringInstance: true
+                    });
+                }
+                current.setDate(current.getDate() + 7);
+            }
+
+            return instances;
+        }
+
+        // Get filtered events for date range
+        function getFilteredEvents(startDate, endDate) {
+            if (!calendarData) return [];
+
+            let events = [];
+
+            calendarData.events.forEach(event => {
+                if (!filters.types.includes(event.type)) return;
+                if (filters.team !== 'all' && event.team !== filters.team && event.team !== 'both') return;
+
+                const instances = expandRecurringEvent(event, startDate, endDate);
+                events = events.concat(instances);
+            });
+
+            return events.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+        }
+
+        // Render calendar view
+        function renderCalendar() {
+            const year = currentMonth.getFullYear();
+            const month = currentMonth.getMonth();
+
+            document.getElementById('current-month').textContent =
+                currentMonth.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const startDate = new Date(firstDay);
+            startDate.setDate(startDate.getDate() - startDate.getDay());
+            const endDate = new Date(lastDay);
+            endDate.setDate(endDate.getDate() + (6 - endDate.getDay()));
+
+            const events = getFilteredEvents(startDate, endDate);
+
+            const grid = document.getElementById('calendar-grid');
+            const headers = grid.querySelectorAll('.calendar-day-header');
+            grid.innerHTML = '';
+            headers.forEach(h => grid.appendChild(h));
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'calendar-day';
+
+                if (d.getMonth() !== month) {
+                    dayDiv.classList.add('other-month');
+                }
+
+                const dayDate = new Date(d);
+                dayDate.setHours(0, 0, 0, 0);
+                if (dayDate.getTime() === today.getTime()) {
+                    dayDiv.classList.add('today');
+                }
+
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = d.getDate();
+                dayDiv.appendChild(dayNumber);
+
+                const dayEvents = events.filter(e => {
+                    const eventDate = new Date(e.startDate);
+                    eventDate.setHours(0, 0, 0, 0);
+                    return eventDate.getTime() === dayDate.getTime();
+                });
+
+                dayEvents.slice(0, 3).forEach(event => {
+                    const badge = document.createElement('div');
+                    badge.className = 'event-badge';
+                    badge.style.backgroundColor = calendarData.eventTypes[event.type].color + '20';
+                    badge.style.color = calendarData.eventTypes[event.type].color;
+                    badge.textContent = `${calendarData.eventTypes[event.type].icon} ${event.title}`;
+                    badge.title = event.title;
+                    badge.onclick = (e) => {
+                        e.stopPropagation();
+                        showEventModal(event);
+                    };
+                    dayDiv.appendChild(badge);
+                });
+
+                if (dayEvents.length > 3) {
+                    const more = document.createElement('div');
+                    more.className = 'text-xs text-gray-500 mt-1';
+                    more.textContent = `+${dayEvents.length - 3} more`;
+                    dayDiv.appendChild(more);
+                }
+
+                dayDiv.onclick = () => {
+                    if (dayEvents.length > 0) {
+                        showEventModal(dayEvents[0]);
+                    }
+                };
+
+                grid.appendChild(dayDiv);
+            }
+        }
+
+        // Render list view
+        function renderList() {
+            const now = new Date();
+            const future = new Date(now);
+            future.setDate(future.getDate() + 90);
+
+            const events = getFilteredEvents(now, future);
+
+            const listContent = document.getElementById('list-content');
+            listContent.innerHTML = '';
+
+            if (events.length === 0) {
+                listContent.innerHTML = `
+                    <div class="bg-white rounded-lg shadow-md p-8 text-center">
+                        <p class="text-gray-600">No upcoming events found.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let currentDate = null;
+
+            events.forEach(event => {
+                const eventDate = new Date(event.startDate);
+                const dateKey = eventDate.toDateString();
+
+                if (dateKey !== currentDate) {
+                    currentDate = dateKey;
+                    const dateHeader = document.createElement('h3');
+                    dateHeader.className = 'text-xl font-bold text-gray-800 mb-4 mt-6';
+                    dateHeader.textContent = eventDate.toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    });
+                    listContent.appendChild(dateHeader);
+                }
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md p-6 mb-4 cursor-pointer hover:shadow-lg transition';
+                card.onclick = () => showEventModal(event);
+
+                const typeColor = calendarData.eventTypes[event.type].color;
+                card.innerHTML = `
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mr-4 text-3xl">${calendarData.eventTypes[event.type].icon}</div>
+                        <div class="flex-1">
+                            <h4 class="text-xl font-bold text-gray-800 mb-2">${event.title}</h4>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="px-3 py-1 rounded-full text-sm font-semibold" style="background-color: ${typeColor}20; color: ${typeColor}">
+                                    ${calendarData.eventTypes[event.type].label}
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-700">
+                                    ${calendarData.teams[event.team].label}
+                                </span>
+                            </div>
+                            <div class="text-gray-700 space-y-1">
+                                <div>⏰ ${eventDate.toLocaleString('en-US', {
+                                    hour: 'numeric',
+                                    minute: '2-digit',
+                                    hour12: true
+                                })}</div>
+                                ${event.location ? `<div>📍 ${event.location}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                listContent.appendChild(card);
+            });
+        }
+
+        // Show event modal
+        function showEventModal(event) {
+            const modal = document.getElementById('event-modal');
+            document.getElementById('modal-title').textContent = event.title;
+
+            const typeLabel = calendarData.eventTypes[event.type].label;
+            const teamLabel = calendarData.teams[event.team].label;
+            document.getElementById('modal-type-team').textContent = `${typeLabel} • ${teamLabel}`;
+
+            const eventDate = new Date(event.startDate);
+            const eventEndDate = new Date(event.endDate);
+
+            let details = `
+                <div class="space-y-4">
+                    <div>
+                        <div class="font-semibold text-gray-700 mb-1">📅 Date</div>
+                        <div class="text-gray-800">${eventDate.toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric'
+                        })}</div>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-gray-700 mb-1">⏰ Time</div>
+                        <div class="text-gray-800">${eventDate.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        })} - ${eventEndDate.toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        })}</div>
+                    </div>
+            `;
+
+            if (event.location) {
+                details += `
+                    <div>
+                        <div class="font-semibold text-gray-700 mb-1">📍 Location</div>
+                        <div class="text-gray-800">${event.location}</div>
+                    </div>
+                `;
+            }
+
+            if (event.description) {
+                details += `
+                    <div>
+                        <div class="font-semibold text-gray-700 mb-1">📝 Description</div>
+                        <div class="text-gray-800">${event.description}</div>
+                    </div>
+                `;
+            }
+
+            if (event.isRecurringInstance) {
+                details += `
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                        <div class="text-sm text-blue-700">🔁 This is a recurring event</div>
+                    </div>
+                `;
+            }
+
+            details += '</div>';
+
+            document.getElementById('modal-body').innerHTML = details;
+            modal.classList.add('active');
+        }
+
+        // Close modal
+        document.getElementById('modal-close').onclick = () => {
+            document.getElementById('event-modal').classList.remove('active');
+        };
+
+        window.onclick = (e) => {
+            const modal = document.getElementById('event-modal');
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        };
+
+        // Month navigation
+        document.getElementById('prev-month').onclick = () => {
+            currentMonth.setMonth(currentMonth.getMonth() - 1);
+            renderCalendar();
+        };
+
+        document.getElementById('next-month').onclick = () => {
+            currentMonth.setMonth(currentMonth.getMonth() + 1);
+            renderCalendar();
+        };
+
+        // View toggle
+        document.getElementById('calendar-view-toggle').onclick = () => {
+            if (currentView === 'calendar') {
+                currentView = 'list';
+                document.getElementById('calendar-view').style.display = 'none';
+                document.getElementById('list-view').style.display = 'block';
+                document.getElementById('calendar-view-toggle').textContent = 'Switch to Calendar View';
+                renderList();
+            } else {
+                currentView = 'calendar';
+                document.getElementById('calendar-view').style.display = 'block';
+                document.getElementById('list-view').style.display = 'none';
+                document.getElementById('calendar-view-toggle').textContent = 'Switch to List View';
+                renderCalendar();
+            }
+        };
+
+        // Filter handlers
+        document.querySelectorAll('[data-filter-type]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    filters.types.push(checkbox.dataset.filterType);
+                } else {
+                    filters.types = filters.types.filter(t => t !== checkbox.dataset.filterType);
+                }
+                renderCurrentView();
+            });
+        });
+
+        document.querySelectorAll('[data-filter-team]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.checked) {
+                    filters.team = radio.dataset.filterTeam;
+                    renderCurrentView();
+                }
+            });
+        });
+
+        function renderCurrentView() {
+            if (currentView === 'calendar') {
+                renderCalendar();
+            } else {
+                renderList();
+            }
+        }
+
+        // Logout handler
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.cookie = 'kcuda_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.href = '/index.html';
+        });
+
+        // Initialize
+        loadCalendarData();
+    </script>
+</body>
+</html>

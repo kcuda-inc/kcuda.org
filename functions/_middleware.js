@@ -3,8 +3,8 @@ export async function onRequest(context) {
   const { request, next } = context;
   const url = new URL(request.url);
   
-  // Only protect /members.html requests
-  if (url.pathname === '/members.html') {
+  // Only protect /members.html and /members-calendar.html requests
+  if (url.pathname === '/members.html' || url.pathname === '/members-calendar.html') {
     try {
       // Check for authentication cookie
       const cookies = request.headers.get('Cookie') || '';
