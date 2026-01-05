@@ -21,4 +21,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=kcuda
+          wranglerVersion: "4"
+          command: pages deploy . --project-name=kcuda --commit-dirty=true
