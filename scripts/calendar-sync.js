@@ -56,11 +56,13 @@ function classifyEventType(summary, description) {
 function classifyTeam(summary, description) {
   const text = `${summary} ${description}`.toLowerCase();
 
-  for (const [team, keywords] of Object.entries(TEAM_KEYWORDS)) {
-    if (keywords.some(keyword => text.includes(keyword))) {
-      return team;
-    }
-  }
+  // If both A team and B team are mentioned, it's for both teams
+  const hasA = TEAM_KEYWORDS['a-team'].some(k => text.includes(k));
+  const hasB = TEAM_KEYWORDS['b-team'].some(k => text.includes(k));
+  if (hasA && hasB) return 'both';
+
+  if (hasA) return 'a-team';
+  if (hasB) return 'b-team';
 
   return 'both'; // default to both teams
 }

@@ -315,24 +315,21 @@
 
             const rule = event.recurring.rule;
             const freqMatch = rule.match(/FREQ=(\w+)/);
-            const bydayMatch = rule.match(/BYDAY=(\w+)/);
+            const bydayMatch = rule.match(/BYDAY=([\w,]+)/);
 
             if (!freqMatch || freqMatch[1] !== 'WEEKLY' || !bydayMatch) {
                 return [event];
             }
 
             const dayMap = { SU: 0, MO: 1, TU: 2, WE: 3, TH: 4, FR: 5, SA: 6 };
-            const targetDay = dayMap[bydayMatch[1]];
+            const targetDays = bydayMatch[1].split(',').map(d => dayMap[d]).filter(d => d !== undefined);
 
-            let current = new Date(eventStart);
             const maxDate = event.recurring.until ? new Date(event.recurring.until) : endDate;
+            let current = new Date(eventStart);
 
-            while (current.getDay() !== targetDay && current < maxDate) {
-                current.setDate(current.getDate() + 1);
-            }
-
+            // Walk day-by-day from event start to find all matching days of the week
             while (current <= maxDate && current <= endDate) {
-                if (current >= startDate) {
+                if (targetDays.includes(current.getDay()) && current >= startDate) {
                     const instanceEnd = new Date(current.getTime() + duration);
                     instances.push({
                         ...event,
@@ -341,7 +338,7 @@
                         isRecurringInstance: true
                     });
                 }
-                current.setDate(current.getDate() + 7);
+                current.setDate(current.getDate() + 1);
             }
 
             return instances;
