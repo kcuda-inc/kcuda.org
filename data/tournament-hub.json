@@ -7,10 +7,7 @@
     "tech-b": "Tech Support B",
     "disco": "Disco Tech"
   },
-  "hubLinks": [
-    { "label": "A Team Tournament Hub", "url": "#", "team": "tech-a" },
-    { "label": "B Team Tournament Hub", "url": "#", "team": "tech-b" }
-  ],
+  "hubLinks": [],
   "tournaments": [
     {
       "id": "battle-hudson-2026",
