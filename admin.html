@@ -147,6 +147,43 @@
         function createLinkRow(link, index, type, tournamentIndex) {
             const row = document.createElement('div');
             row.className = 'flex gap-2 items-center';
+            row.draggable = true;
+            row.dataset.index = index;
+            row.dataset.type = type;
+            if (tournamentIndex != null) row.dataset.tournament = tournamentIndex;
+
+            row.addEventListener('dragstart', function(e) {
+                e.dataTransfer.effectAllowed = 'move';
+                row.classList.add('opacity-50');
+                dragState = { type, tournamentIndex, index };
+            });
+            row.addEventListener('dragend', function() {
+                row.classList.remove('opacity-50');
+                dragState = null;
+            });
+            row.addEventListener('dragover', function(e) {
+                if (!dragState || dragState.type !== type || dragState.tournamentIndex !== tournamentIndex) return;
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                row.classList.add('border-t-2', 'border-indigo-400');
+            });
+            row.addEventListener('dragleave', function() {
+                row.classList.remove('border-t-2', 'border-indigo-400');
+            });
+            row.addEventListener('drop', function(e) {
+                e.preventDefault();
+                row.classList.remove('border-t-2', 'border-indigo-400');
+                if (!dragState || dragState.type !== type || dragState.tournamentIndex !== tournamentIndex) return;
+                const from = dragState.index;
+                const to = index;
+                if (from === to) return;
+                const links = type === 'hub' ? hubData.hubLinks : hubData.tournaments[tournamentIndex].links;
+                const [moved] = links.splice(from, 1);
+                links.splice(to, 0, moved);
+                if (type === 'hub') renderHubLinks();
+                else renderTournaments();
+            });
+
             const labels = (hubData && hubData.teamLabels) || {};
             const teams = (hubData && hubData.teams) || [];
             const allSelected = (!link.team || link.team === 'all') ? ' selected' : '';
@@ -156,6 +193,7 @@
                 teamOptions += `<option value="${t}"${selected}>${escHtml(labels[t] || t)}</option>`;
             });
             row.innerHTML = `
+                <span class="cursor-grab text-gray-400 hover:text-gray-600 px-1" title="Drag to reorder">&#x2630;</span>
                 <input type="text" value="${escHtml(link.label)}" placeholder="Label" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" onchange="updateLink('${type}', ${tournamentIndex ?? 'null'}, ${index}, 'label', this.value)">
                 <input type="text" value="${escHtml(link.url)}" placeholder="URL" class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" onchange="updateLink('${type}', ${tournamentIndex ?? 'null'}, ${index}, 'url', this.value)">
                 <select class="px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" onchange="updateLink('${type}', ${tournamentIndex ?? 'null'}, ${index}, 'team', this.value)">${teamOptions}</select>
@@ -163,6 +201,8 @@
             `;
             return row;
         }
+
+        let dragState = null;
 
         function escHtml(str) {
             const div = document.createElement('div');
