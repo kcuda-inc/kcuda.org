@@ -416,7 +416,7 @@
                     badge.className = 'event-badge';
                     badge.style.backgroundColor = calendarData.eventTypes[event.type].color + '20';
                     badge.style.color = calendarData.eventTypes[event.type].color;
-                    badge.textContent = `${calendarData.eventTypes[event.type].icon} ${event.title}`;
+                    badge.textContent = event.title;
                     badge.title = event.title;
                     badge.onclick = (e) => {
                         e.stopPropagation();
