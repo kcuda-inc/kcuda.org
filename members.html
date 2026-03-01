@@ -159,6 +159,9 @@
                 if (visibleLinks.length === 0) return;
                 html += `<div class="border-t pt-6 ${i < data.tournaments.length - 1 ? 'mb-6' : ''}">`;
                 html += `<h3 class="text-lg font-bold bg-indigo-700 text-white px-4 py-2 rounded-lg mb-4">${escapeHtml(t.name)}: ${escapeHtml(t.date)}, ${escapeHtml(t.location)}</h3>`;
+                if (t.description) {
+                    html += `<p class="text-gray-600 mb-3">${escapeHtml(t.description)}</p>`;
+                }
                 html += '<p class="text-gray-700 font-semibold mb-2">Links/Forms:</p>';
                 html += '<ul class="space-y-2 ml-1">';
                 visibleLinks.forEach(link => {

@@ -17,6 +17,7 @@
       "name": "Battle of the Hudson",
       "date": "March 8th",
       "location": "Red Hook, Brooklyn",
+      "description": "",
       "links": [
         { "label": "A Team Battle of the Hudson Player Registration", "url": "#", "team": "tech-a" },
         { "label": "B Team Battle of the Hudson Player Registration", "url": "#", "team": "tech-b" }
@@ -27,6 +28,7 @@
       "name": "YULA",
       "date": "March 21-22",
       "location": "Arlington, VA",
+      "description": "",
       "links": [
         { "label": "Parent Hotel Link", "url": "#", "team": "all" },
         { "label": "A Team YULA Player Registration/Carpool Form", "url": "#", "team": "tech-a" },
