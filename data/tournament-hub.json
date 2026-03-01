@@ -1,0 +1,38 @@
+{
+  "title": "Spring 2026 Tournament Hub",
+  "description": "This is where you can check your entries for each tournament registration/carpool form. All tournaments can be scrolled at the bottom of each hub sheet. If your plans change, please contact Coach Graham/Coach Syed and parent coordinators Irene, Betsy & Ellen.",
+  "teams": ["tech-a", "tech-b", "disco"],
+  "teamLabels": {
+    "tech-a": "Tech Support A",
+    "tech-b": "Tech Support B",
+    "disco": "Disco Tech"
+  },
+  "hubLinks": [
+    { "label": "A Team Tournament Hub", "url": "#", "team": "tech-a" },
+    { "label": "B Team Tournament Hub", "url": "#", "team": "tech-b" }
+  ],
+  "tournaments": [
+    {
+      "id": "battle-hudson-2026",
+      "name": "Battle of the Hudson",
+      "date": "March 8th",
+      "location": "Red Hook, Brooklyn",
+      "links": [
+        { "label": "A Team Battle of the Hudson Player Registration", "url": "#", "team": "tech-a" },
+        { "label": "B Team Battle of the Hudson Player Registration", "url": "#", "team": "tech-b" }
+      ]
+    },
+    {
+      "id": "yula-2026",
+      "name": "YULA",
+      "date": "March 21-22",
+      "location": "Arlington, VA",
+      "links": [
+        { "label": "Parent Hotel Link", "url": "#", "team": "all" },
+        { "label": "A Team YULA Player Registration/Carpool Form", "url": "#", "team": "tech-a" },
+        { "label": "Chipotle Dinner Player Form", "url": "#", "team": "all" },
+        { "label": "Chipotle Dinner Parent Form", "url": "#", "team": "all" }
+      ]
+    }
+  ]
+}
