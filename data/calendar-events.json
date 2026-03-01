@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastSync": "2026-03-01T18:58:44.565Z",
+  "lastSync": "2026-03-01T19:01:55.695Z",
   "calendarSource": "https://calendar.google.com/calendar/ical/f084ad195358602b56dafa6db63eeaf1914b7f43b4cd7ee8d080f29f218dd378%40group.calendar.google.com/public/basic.ics",
   "events": [
     {
@@ -548,18 +548,22 @@
       "status": "confirmed"
     },
     {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-10",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Saturday practice for A Team and Winter Squad",
-      "startDate": "2026-01-10T19:00:00.000Z",
-      "endDate": "2026-01-10T21:30:00.000Z",
+      "id": "google-0iuus0ljpk1kitue",
+      "uid": "0iuus0ljpk1kituejk7fmbu0sk@google.com",
+      "title": "🥏 A Team + B Team Practices",
+      "description": "",
+      "startDate": "2026-02-10T21:30:00.000Z",
+      "endDate": "2026-02-10T23:30:00.000Z",
       "allDay": false,
-      "location": "Prospect Park Parade Grounds, Brooklyn, NY",
+      "location": "McCarren Park, 776 Lorimer St, Brooklyn, NY 11222, USA",
       "type": "practice",
-      "team": "a-team",
+      "team": "both",
       "recurring": {
-        "enabled": false
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260303T045959Z;WKST=SU",
+        "until": "2026-03-03T04:59:59Z",
+        "freq": "WEEKLY",
+        "byday": "TH,TU"
       },
       "source": "google-calendar",
       "status": "confirmed"
@@ -569,8 +573,8 @@
       "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
       "title": "🥏 B Team Practice TBD",
       "description": "",
-      "startDate": "2026-05-19T20:30:00.000Z",
-      "endDate": "2026-05-19T22:30:00.000Z",
+      "startDate": "2026-05-05T20:30:00.000Z",
+      "endDate": "2026-05-05T22:30:00.000Z",
       "allDay": false,
       "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
       "type": "practice",
@@ -582,22 +586,52 @@
       "status": "confirmed"
     },
     {
-      "id": "google-58hinoasrhrnb6us",
-      "uid": "58hinoasrhrnb6usk56klbs9bh@google.com",
-      "title": "🥏 Coconut Classic",
+      "id": "google-3e9isb8jbh3cc3hg",
+      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "title": "🥏 B Team Practice TBD",
       "description": "",
-      "startDate": "2025-11-01T12:00:00.000Z",
-      "endDate": "2025-11-01T21:00:00.000Z",
+      "startDate": "2026-05-16T18:00:00.000Z",
+      "endDate": "2026-05-16T20:30:00.000Z",
       "allDay": false,
-      "location": "Turkey Swamp Park, 200 Georgia Rd, Freehold Township, NJ 07728, USA",
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0jqob271cs25b3q9",
+      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
+      "title": "🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-11-20T21:30:00.000Z",
+      "endDate": "2025-11-20T23:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
       "type": "practice",
       "team": "both",
       "recurring": {
-        "enabled": true,
-        "rule": "FREQ=DAILY;COUNT=2",
-        "until": null,
-        "freq": "DAILY",
-        "byday": null
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0iuus0ljpk1kitue",
+      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
+      "title": "🥏 B Team Practice TBD",
+      "description": "",
+      "startDate": "2026-03-24T20:30:00.000Z",
+      "endDate": "2026-03-24T22:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
       },
       "source": "google-calendar",
       "status": "confirmed"
@@ -612,112 +646,6 @@
       "allDay": false,
       "location": "Parade Ground Field 1, Prospect Park Alliance, 95 Prospect Park W, Brooklyn, NY 11215, USA",
       "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-2539AD05-3D65-41",
-      "uid": "2539AD05-3D65-41C0-9EA3-BBC8D128EEA1",
-      "title": "🏆 NY State Championship - Day 1",
-      "description": "New York State Championship",
-      "startDate": "2026-05-23T13:00:00.000Z",
-      "endDate": "2026-05-23T21:00:00.000Z",
-      "allDay": false,
-      "location": "Albany, NY",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-BDA22161-6178-47",
-      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
-      "title": "CANCELLED: 🥏 Tech Support Practice",
-      "description": "",
-      "startDate": "2025-12-02T21:30:00.000Z",
-      "endDate": "2025-12-02T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-70C8B3F7-CEDD-43",
-      "uid": "70C8B3F7-CEDD-433A-8AFF-0F55F93CFCC4",
-      "title": "🥏 YULA",
-      "description": "",
-      "startDate": "2026-03-21T12:00:00.000Z",
-      "endDate": "2026-03-21T20:00:00.000Z",
-      "allDay": false,
-      "location": "Arlington, VA\nUnited States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-track-work",
-      "uid": "local-track-workout-2025-12-08",
-      "title": "🏃 Track Workout",
-      "description": "Monday track workout - open to all players",
-      "startDate": "2025-12-08T22:00:00.000Z",
-      "endDate": "2025-12-08T23:15:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park Track, Lorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211",
-      "type": "track-workout",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-BDA22161-6178-47",
-      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
-      "title": "🥏 Tech Support Practice",
-      "description": "",
-      "startDate": "2025-12-02T21:30:00.000Z",
-      "endDate": "2025-12-02T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=TU,TH;UNTIL=20251205T045959Z;WKST=SU",
-        "until": "20251205T045959Z",
-        "freq": "WEEKLY",
-        "byday": "TU,TH"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-AB973573-4973-4F",
-      "uid": "AB973573-4973-4F4D-9165-146B0F5E91D9",
-      "title": "🏆 PVI - Day 2",
-      "description": "PVI tournament in Easthampton",
-      "startDate": "2026-05-17T13:00:00.000Z",
-      "endDate": "2026-05-17T21:00:00.000Z",
-      "allDay": false,
-      "location": "Easthampton, MA",
-      "type": "tournament",
       "team": "both",
       "recurring": {
         "enabled": false
@@ -760,71 +688,16 @@
       "status": "confirmed"
     },
     {
-      "id": "google-0iuus0ljpk1kitue",
-      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-04-21T20:30:00.000Z",
-      "endDate": "2026-04-21T22:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0iuus0ljpk1kitue",
-      "uid": "0iuus0ljpk1kituejk7fmbu0sk@google.com",
-      "title": "🥏 A Team + B Team Practices",
-      "description": "",
-      "startDate": "2026-02-10T21:30:00.000Z",
-      "endDate": "2026-02-10T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park, 776 Lorimer St, Brooklyn, NY 11222, USA",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260303T045959Z;WKST=SU",
-        "until": "20260303T045959Z",
-        "freq": "WEEKLY",
-        "byday": "TH,TU"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
       "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-29",
-      "title": "🥏 CANCELED PRACTICE",
-      "description": "Thursday practice - both teams",
-      "startDate": "2026-01-29T21:30:00.000Z",
-      "endDate": "2026-01-29T23:30:00.000Z",
+      "uid": "local-practice-2025-12-09",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Tuesday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-09T21:30:00.000Z",
+      "endDate": "2025-12-09T23:30:00.000Z",
       "allDay": false,
       "location": "McCarren Park, Brooklyn, NY",
       "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-3e9isb8jbh3cc3hg",
-      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-05-16T18:00:00.000Z",
-      "endDate": "2026-05-16T20:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
+      "team": "a-team",
       "recurring": {
         "enabled": false
       },
@@ -849,266 +722,16 @@
       "status": "confirmed"
     },
     {
-      "id": "google-36F8C213-A7F0-48",
-      "uid": "36F8C213-A7F0-48AC-88C9-3E7568CF2C28",
-      "title": "🏆 Spring Fling - Day 2",
-      "description": "Spring Fling tournament in Freehold, NJ",
-      "startDate": "2026-04-19T13:00:00.000Z",
-      "endDate": "2026-04-19T21:00:00.000Z",
-      "allDay": false,
-      "location": "Freehold, NJ",
-      "type": "tournament",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
       "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-13",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Saturday practice for A Team and Winter Squad invitees",
-      "startDate": "2025-12-13T19:00:00.000Z",
-      "endDate": "2025-12-13T21:30:00.000Z",
+      "uid": "local-practice-2025-12-16",
+      "title": "[CANCELED] 🥏 A Team + Winter Squad Practice",
+      "description": "Tuesday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-16T21:30:00.000Z",
+      "endDate": "2025-12-16T21:45:00.000Z",
       "allDay": false,
-      "location": "Prospect Park Parade Grounds Field 8, Brooklyn, NY",
+      "location": "",
       "type": "practice",
       "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0iuus0ljpk1kitue",
-      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
-      "title": "🥏 A Team + B Team Practices",
-      "description": "",
-      "startDate": "2026-03-03T21:30:00.000Z",
-      "endDate": "2026-03-03T23:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260609T035959Z;WKST=SU",
-        "until": "20260609T035959Z",
-        "freq": "WEEKLY",
-        "byday": "TH,TU"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-3e9isb8jbh3cc3hg",
-      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-05-02T18:00:00.000Z",
-      "endDate": "2026-05-02T20:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-18",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Thursday practice for A Team and Winter Squad invitees - Last before holiday break",
-      "startDate": "2025-12-18T21:30:00.000Z",
-      "endDate": "2025-12-18T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park, Brooklyn, NY",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0iuus0ljpk1kitue",
-      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-05-05T20:30:00.000Z",
-      "endDate": "2026-05-05T22:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-a71sli3svi53u200",
-      "uid": "a71sli3svi53u200ltflu5pvf5@google.com",
-      "title": "��� A Team + B Team Practices",
-      "description": "",
-      "startDate": "2026-06-06T18:00:00.000Z",
-      "endDate": "2026-06-06T20:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=SA;UNTIL=20260607T035959Z;WKST=SU",
-        "until": "20260607T035959Z",
-        "freq": "WEEKLY",
-        "byday": "SA"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-13",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Tuesday practice for A Team and Winter Squad",
-      "startDate": "2026-01-13T21:30:00.000Z",
-      "endDate": "2026-01-13T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park, Brooklyn, NY",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-06",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Saturday practice for A Team and Winter Squad invitees",
-      "startDate": "2025-12-06T19:00:00.000Z",
-      "endDate": "2025-12-06T21:30:00.000Z",
-      "allDay": false,
-      "location": "Prospect Park Parade Grounds Field 8, Brooklyn, NY",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0jqob271cs25b3q9",
-      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
-      "title": "🥏 Tech Support Alumni Game",
-      "description": "",
-      "startDate": "2025-11-25T22:00:00.000Z",
-      "endDate": "2025-11-26T00:00:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
-      "type": "game",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-95998ECB-9412-42",
-      "uid": "95998ECB-9412-42C5-B562-F5397333A5B7",
-      "title": "🥏 YULA",
-      "description": "",
-      "startDate": "2026-03-22T12:00:00.000Z",
-      "endDate": "2026-03-22T20:00:00.000Z",
-      "allDay": false,
-      "location": "Arlington, VA\nUnited States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-3e9isb8jbh3cc3hg",
-      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
-      "title": "🥏 A Team + B Team Practices",
-      "description": "",
-      "startDate": "2026-02-14T19:00:00.000Z",
-      "endDate": "2026-02-14T21:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=SA;UNTIL=20260606T035959Z",
-        "until": "20260606T035959Z",
-        "freq": "WEEKLY",
-        "byday": "SA"
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-3e9isb8jbh3cc3hg",
-      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-03-21T18:00:00.000Z",
-      "endDate": "2026-03-21T20:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-06",
-      "title": "🥏 A Team + Winter Squad Practice Resumes",
-      "description": "First practice after holiday break for A Team and Winter Squad",
-      "startDate": "2026-01-06T21:30:00.000Z",
-      "endDate": "2026-01-06T22:45:00.000Z",
-      "allDay": false,
-      "location": "TBD",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-46073F57-0159-45",
-      "uid": "46073F57-0159-4526-9C0F-243DAA0BADBC",
-      "title": "🏆 Amherst Invite - Day 2",
-      "description": "Amherst Invite tournament",
-      "startDate": "2026-05-03T13:00:00.000Z",
-      "endDate": "2026-05-03T21:00:00.000Z",
-      "allDay": false,
-      "location": "Amherst, MA",
-      "type": "tournament",
-      "team": "both",
       "recurring": {
         "enabled": false
       },
@@ -1133,29 +756,12 @@
       "status": "confirmed"
     },
     {
-      "id": "google-140E0FF9-A0FF-4B",
-      "uid": "140E0FF9-A0FF-4B71-AE49-66F2AD0C61C6",
-      "title": "🏆 NY State Championship - Day 2",
-      "description": "New York State Championship",
-      "startDate": "2026-05-24T13:00:00.000Z",
-      "endDate": "2026-05-24T21:00:00.000Z",
-      "allDay": false,
-      "location": "Albany, NY",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-DE9464C3-165C-42",
-      "uid": "DE9464C3-165C-42C0-80C7-4952D735D13F",
-      "title": "🏆 PVI - Day 1",
+      "id": "google-AB973573-4973-4F",
+      "uid": "AB973573-4973-4F4D-9165-146B0F5E91D9",
+      "title": "🏆 PVI - Day 2",
       "description": "PVI tournament in Easthampton",
-      "startDate": "2026-05-16T13:00:00.000Z",
-      "endDate": "2026-05-16T21:00:00.000Z",
+      "startDate": "2026-05-17T13:00:00.000Z",
+      "endDate": "2026-05-17T21:00:00.000Z",
       "allDay": false,
       "location": "Easthampton, MA",
       "type": "tournament",
@@ -1167,29 +773,12 @@
       "status": "confirmed"
     },
     {
-      "id": "google-C71B9937-B65C-40",
-      "uid": "C71B9937-B65C-40D6-80CE-6DD9895E2E9E",
-      "title": "🥏 Hucksgiving Showdown",
-      "description": "",
-      "startDate": "2025-11-22T14:00:00.000Z",
-      "endDate": "2025-11-22T22:00:00.000Z",
-      "allDay": false,
-      "location": "Prospect Park Parade Grounds\n115 Parkside Ave, Brooklyn, NY  11226, United States",
-      "type": "practice",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-3e9isb8jbh3cc3hg",
-      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "id": "google-0iuus0ljpk1kitue",
+      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
       "title": "🥏 B Team Practice TBD",
       "description": "",
-      "startDate": "2026-04-18T18:00:00.000Z",
-      "endDate": "2026-04-18T20:30:00.000Z",
+      "startDate": "2026-05-19T20:30:00.000Z",
+      "endDate": "2026-05-19T22:30:00.000Z",
       "allDay": false,
       "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
       "type": "practice",
@@ -1201,14 +790,69 @@
       "status": "confirmed"
     },
     {
+      "id": "google-cqe8h511slk9k5b7",
+      "uid": "cqe8h511slk9k5b710rvn345cs@google.com",
+      "title": "🥏 A Team + B Team Practices",
+      "description": "",
+      "startDate": "2026-06-09T20:30:00.000Z",
+      "endDate": "2026-06-09T22:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park, 776 Lorimer St, Brooklyn, NY 11222, USA",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260610T035959Z;WKST=SU",
+        "until": "2026-06-10T03:59:59Z",
+        "freq": "WEEKLY",
+        "byday": "TH,TU"
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
       "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-11",
+      "uid": "local-practice-2026-01-13",
       "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Thursday practice for A Team and Winter Squad invitees",
-      "startDate": "2025-12-11T21:30:00.000Z",
-      "endDate": "2025-12-11T23:30:00.000Z",
+      "description": "Tuesday practice for A Team and Winter Squad",
+      "startDate": "2026-01-13T21:30:00.000Z",
+      "endDate": "2026-01-13T23:30:00.000Z",
       "allDay": false,
       "location": "McCarren Park, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2026-01-17",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Saturday practice for A Team and Winter Squad",
+      "startDate": "2026-01-17T19:00:00.000Z",
+      "endDate": "2026-01-17T21:30:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2026-01-10",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Saturday practice for A Team and Winter Squad",
+      "startDate": "2026-01-10T19:00:00.000Z",
+      "endDate": "2026-01-10T21:30:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds, Brooklyn, NY",
       "type": "practice",
       "team": "a-team",
       "recurring": {
@@ -1236,15 +880,15 @@
     },
     {
       "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-16",
-      "title": "[CANCELED] 🥏 A Team + Winter Squad Practice",
-      "description": "Tuesday practice for A Team and Winter Squad invitees",
-      "startDate": "2025-12-16T21:30:00.000Z",
-      "endDate": "2025-12-16T21:45:00.000Z",
+      "uid": "local-practice-2026-01-29",
+      "title": "🥏 CANCELED PRACTICE",
+      "description": "Thursday practice - both teams",
+      "startDate": "2026-01-29T21:30:00.000Z",
+      "endDate": "2026-01-29T23:30:00.000Z",
       "allDay": false,
-      "location": "",
+      "location": "McCarren Park, Brooklyn, NY",
       "type": "practice",
-      "team": "a-team",
+      "team": "both",
       "recurring": {
         "enabled": false
       },
@@ -1252,70 +896,36 @@
       "status": "confirmed"
     },
     {
-      "id": "google-cqe8h511slk9k5b7",
-      "uid": "cqe8h511slk9k5b710rvn345cs@google.com",
+      "id": "google-a71sli3svi53u200",
+      "uid": "a71sli3svi53u200ltflu5pvf5@google.com",
       "title": "🥏 A Team + B Team Practices",
       "description": "",
-      "startDate": "2026-06-09T20:30:00.000Z",
-      "endDate": "2026-06-09T22:30:00.000Z",
+      "startDate": "2026-06-06T18:00:00.000Z",
+      "endDate": "2026-06-06T20:30:00.000Z",
       "allDay": false,
-      "location": "McCarren Park, 776 Lorimer St, Brooklyn, NY 11222, USA",
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
       "type": "practice",
       "team": "both",
       "recurring": {
         "enabled": true,
-        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260610T035959Z;WKST=SU",
-        "until": "20260610T035959Z",
+        "rule": "FREQ=WEEKLY;BYDAY=SA;UNTIL=20260607T035959Z;WKST=SU",
+        "until": "2026-06-07T03:59:59Z",
         "freq": "WEEKLY",
-        "byday": "TH,TU"
+        "byday": "SA"
       },
       "source": "google-calendar",
       "status": "confirmed"
     },
     {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-17",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Saturday practice for A Team and Winter Squad",
-      "startDate": "2026-01-17T19:00:00.000Z",
-      "endDate": "2026-01-17T21:30:00.000Z",
+      "id": "google-local-track-work",
+      "uid": "local-track-workout-2025-12-08",
+      "title": "🏃 Track Workout",
+      "description": "Monday track workout - open to all players",
+      "startDate": "2025-12-08T22:00:00.000Z",
+      "endDate": "2025-12-08T23:15:00.000Z",
       "allDay": false,
-      "location": "Prospect Park Parade Grounds, Brooklyn, NY",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-local-practice-2",
-      "uid": "local-practice-2026-01-08",
-      "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Thursday practice for A Team and Winter Squad",
-      "startDate": "2026-01-08T21:30:00.000Z",
-      "endDate": "2026-01-08T23:30:00.000Z",
-      "allDay": false,
-      "location": "McCarren Park, Brooklyn, NY",
-      "type": "practice",
-      "team": "a-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-0jqob271cs25b3q9",
-      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
-      "title": "🥏 Tech Support Practice",
-      "description": "",
-      "startDate": "2025-11-20T21:30:00.000Z",
-      "endDate": "2025-11-20T23:30:00.000Z",
-      "allDay": false,
-      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
-      "type": "practice",
+      "location": "McCarren Park Track, Lorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211",
+      "type": "track-workout",
       "team": "both",
       "recurring": {
         "enabled": false
@@ -1324,31 +934,14 @@
       "status": "confirmed"
     },
     {
-      "id": "google-0iuus0ljpk1kitue",
-      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
-      "title": "🥏 B Team Practice TBD",
-      "description": "",
-      "startDate": "2026-03-24T20:30:00.000Z",
-      "endDate": "2026-03-24T22:30:00.000Z",
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2025-12-11",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Thursday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-11T21:30:00.000Z",
+      "endDate": "2025-12-11T23:30:00.000Z",
       "allDay": false,
-      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
-      "type": "practice",
-      "team": "b-team",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "google-calendar",
-      "status": "confirmed"
-    },
-    {
-      "id": "google-6jt9rqer946id5c2",
-      "uid": "6jt9rqer946id5c2916fl0o7i0@google.com",
-      "title": "🥏 A Team Meeting",
-      "description": "",
-      "startDate": "2026-02-07T19:00:00.000Z",
-      "endDate": "2026-02-07T21:30:00.000Z",
-      "allDay": false,
-      "location": "",
+      "location": "McCarren Park, Brooklyn, NY",
       "type": "practice",
       "team": "a-team",
       "recurring": {
@@ -1377,6 +970,112 @@
     {
       "id": "google-0jqob271cs25b3q9",
       "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
+      "title": "🥏 Tech Support Alumni Game",
+      "description": "",
+      "startDate": "2025-11-25T22:00:00.000Z",
+      "endDate": "2025-11-26T00:00:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Field 3\n47 Parkside Ave, Brooklyn, NY  11215, United States",
+      "type": "game",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2025-12-18",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Thursday practice for A Team and Winter Squad invitees - Last before holiday break",
+      "startDate": "2025-12-18T21:30:00.000Z",
+      "endDate": "2025-12-18T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-70C8B3F7-CEDD-43",
+      "uid": "70C8B3F7-CEDD-433A-8AFF-0F55F93CFCC4",
+      "title": "🥏 YULA",
+      "description": "",
+      "startDate": "2026-03-21T12:00:00.000Z",
+      "endDate": "2026-03-21T20:00:00.000Z",
+      "allDay": false,
+      "location": "Arlington, VA\nUnited States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2026-01-06",
+      "title": "🥏 A Team + Winter Squad Practice Resumes",
+      "description": "First practice after holiday break for A Team and Winter Squad",
+      "startDate": "2026-01-06T21:30:00.000Z",
+      "endDate": "2026-01-06T22:45:00.000Z",
+      "allDay": false,
+      "location": "TBD",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-3e9isb8jbh3cc3hg",
+      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "title": "🥏 B Team Practice TBD",
+      "description": "",
+      "startDate": "2026-05-02T18:00:00.000Z",
+      "endDate": "2026-05-02T20:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0iuus0ljpk1kitue",
+      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
+      "title": "🥏 A Team + B Team Practices",
+      "description": "",
+      "startDate": "2026-03-03T21:30:00.000Z",
+      "endDate": "2026-03-03T23:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=TH,TU;UNTIL=20260609T035959Z;WKST=SU",
+        "until": "2026-06-09T03:59:59Z",
+        "freq": "WEEKLY",
+        "byday": "TH,TU"
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0jqob271cs25b3q9",
+      "uid": "0jqob271cs25b3q9ahqaoluprh@google.com",
       "title": "🥏 Tech Support Practice",
       "description": "",
       "startDate": "2025-11-18T21:30:00.000Z",
@@ -1392,16 +1091,317 @@
       "status": "confirmed"
     },
     {
+      "id": "google-2539AD05-3D65-41",
+      "uid": "2539AD05-3D65-41C0-9EA3-BBC8D128EEA1",
+      "title": "🏆 NY State Championship - Day 1",
+      "description": "New York State Championship",
+      "startDate": "2026-05-23T13:00:00.000Z",
+      "endDate": "2026-05-23T21:00:00.000Z",
+      "allDay": false,
+      "location": "Albany, NY",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-95998ECB-9412-42",
+      "uid": "95998ECB-9412-42C5-B562-F5397333A5B7",
+      "title": "🥏 YULA",
+      "description": "",
+      "startDate": "2026-03-22T12:00:00.000Z",
+      "endDate": "2026-03-22T20:00:00.000Z",
+      "allDay": false,
+      "location": "Arlington, VA\nUnited States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-BDA22161-6178-47",
+      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
+      "title": "CANCELLED: 🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-12-02T21:30:00.000Z",
+      "endDate": "2025-12-02T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-3e9isb8jbh3cc3hg",
+      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "title": "🥏 B Team Practice TBD",
+      "description": "",
+      "startDate": "2026-04-18T18:00:00.000Z",
+      "endDate": "2026-04-18T20:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-36F8C213-A7F0-48",
+      "uid": "36F8C213-A7F0-48AC-88C9-3E7568CF2C28",
+      "title": "🏆 Spring Fling - Day 2",
+      "description": "Spring Fling tournament in Freehold, NJ",
+      "startDate": "2026-04-19T13:00:00.000Z",
+      "endDate": "2026-04-19T21:00:00.000Z",
+      "allDay": false,
+      "location": "Freehold, NJ",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-0iuus0ljpk1kitue",
+      "uid": "0iuus0ljpk1kituejk7fmbu0sk_R20260303T213000@google.com",
+      "title": "🥏 B Team Practice TBD",
+      "description": "",
+      "startDate": "2026-04-21T20:30:00.000Z",
+      "endDate": "2026-04-21T22:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-BDA22161-6178-47",
+      "uid": "BDA22161-6178-4747-A296-34D4E6445818",
+      "title": "🥏 Tech Support Practice",
+      "description": "",
+      "startDate": "2025-12-02T21:30:00.000Z",
+      "endDate": "2025-12-02T23:30:00.000Z",
+      "allDay": false,
+      "location": "McCarren Park Track\nLorimer Street, Union & Driggs Avenue, Brooklyn, NY 11211, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=TU,TH;UNTIL=20251205T045959Z;WKST=SU",
+        "until": "2025-12-05T04:59:59Z",
+        "freq": "WEEKLY",
+        "byday": "TU,TH"
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-6jt9rqer946id5c2",
+      "uid": "6jt9rqer946id5c2916fl0o7i0@google.com",
+      "title": "🥏 A Team Meeting",
+      "description": "",
+      "startDate": "2026-02-07T19:00:00.000Z",
+      "endDate": "2026-02-07T21:30:00.000Z",
+      "allDay": false,
+      "location": "",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-140E0FF9-A0FF-4B",
+      "uid": "140E0FF9-A0FF-4B71-AE49-66F2AD0C61C6",
+      "title": "🏆 NY State Championship - Day 2",
+      "description": "New York State Championship",
+      "startDate": "2026-05-24T13:00:00.000Z",
+      "endDate": "2026-05-24T21:00:00.000Z",
+      "allDay": false,
+      "location": "Albany, NY",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
       "id": "google-local-practice-2",
-      "uid": "local-practice-2025-12-09",
+      "uid": "local-practice-2025-12-13",
       "title": "🥏 A Team + Winter Squad Practice",
-      "description": "Tuesday practice for A Team and Winter Squad invitees",
-      "startDate": "2025-12-09T21:30:00.000Z",
-      "endDate": "2025-12-09T23:30:00.000Z",
+      "description": "Saturday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-13T19:00:00.000Z",
+      "endDate": "2025-12-13T21:30:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds Field 8, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-58hinoasrhrnb6us",
+      "uid": "58hinoasrhrnb6usk56klbs9bh@google.com",
+      "title": "🥏 Coconut Classic",
+      "description": "",
+      "startDate": "2025-11-01T12:00:00.000Z",
+      "endDate": "2025-11-01T21:00:00.000Z",
+      "allDay": false,
+      "location": "Turkey Swamp Park, 200 Georgia Rd, Freehold Township, NJ 07728, USA",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=DAILY;COUNT=2",
+        "until": null,
+        "freq": "DAILY",
+        "byday": null
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-DE9464C3-165C-42",
+      "uid": "DE9464C3-165C-42C0-80C7-4952D735D13F",
+      "title": "🏆 PVI - Day 1",
+      "description": "PVI tournament in Easthampton",
+      "startDate": "2026-05-16T13:00:00.000Z",
+      "endDate": "2026-05-16T21:00:00.000Z",
+      "allDay": false,
+      "location": "Easthampton, MA",
+      "type": "tournament",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2025-12-06",
+      "title": "�� A Team + Winter Squad Practice",
+      "description": "Saturday practice for A Team and Winter Squad invitees",
+      "startDate": "2025-12-06T19:00:00.000Z",
+      "endDate": "2025-12-06T21:30:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds Field 8, Brooklyn, NY",
+      "type": "practice",
+      "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-local-practice-2",
+      "uid": "local-practice-2026-01-08",
+      "title": "🥏 A Team + Winter Squad Practice",
+      "description": "Thursday practice for A Team and Winter Squad",
+      "startDate": "2026-01-08T21:30:00.000Z",
+      "endDate": "2026-01-08T23:30:00.000Z",
       "allDay": false,
       "location": "McCarren Park, Brooklyn, NY",
       "type": "practice",
       "team": "a-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-C71B9937-B65C-40",
+      "uid": "C71B9937-B65C-40D6-80CE-6DD9895E2E9E",
+      "title": "🥏 Hucksgiving Showdown",
+      "description": "",
+      "startDate": "2025-11-22T14:00:00.000Z",
+      "endDate": "2025-11-22T22:00:00.000Z",
+      "allDay": false,
+      "location": "Prospect Park Parade Grounds\n115 Parkside Ave, Brooklyn, NY  11226, United States",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-3e9isb8jbh3cc3hg",
+      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "title": "🥏 B Team Practice TBD",
+      "description": "",
+      "startDate": "2026-03-21T18:00:00.000Z",
+      "endDate": "2026-03-21T20:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "b-team",
+      "recurring": {
+        "enabled": false
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-3e9isb8jbh3cc3hg",
+      "uid": "3e9isb8jbh3cc3hgj84cl00l3p@google.com",
+      "title": "🥏 A Team + B Team Practices",
+      "description": "",
+      "startDate": "2026-02-14T19:00:00.000Z",
+      "endDate": "2026-02-14T21:30:00.000Z",
+      "allDay": false,
+      "location": "Parade Ground Soccer Field 8, Flatbush, Brooklyn, NY 11218, USA",
+      "type": "practice",
+      "team": "both",
+      "recurring": {
+        "enabled": true,
+        "rule": "FREQ=WEEKLY;BYDAY=SA;UNTIL=20260606T035959Z",
+        "until": "2026-06-06T03:59:59Z",
+        "freq": "WEEKLY",
+        "byday": "SA"
+      },
+      "source": "google-calendar",
+      "status": "confirmed"
+    },
+    {
+      "id": "google-46073F57-0159-45",
+      "uid": "46073F57-0159-4526-9C0F-243DAA0BADBC",
+      "title": "🏆 Amherst Invite - Day 2",
+      "description": "Amherst Invite tournament",
+      "startDate": "2026-05-03T13:00:00.000Z",
+      "endDate": "2026-05-03T21:00:00.000Z",
+      "allDay": false,
+      "location": "Amherst, MA",
+      "type": "tournament",
+      "team": "both",
       "recurring": {
         "enabled": false
       },
