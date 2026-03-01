@@ -395,23 +395,6 @@
       "status": "confirmed"
     },
     {
-      "id": "local-tournament-nyc-kickoff-2026",
-      "uid": "local-tournament-nyc-kickoff-2026",
-      "title": "🏆 NYC Kick Off",
-      "description": "NYC Kick Off tournament",
-      "startDate": "2026-03-28T13:00:00.000Z",
-      "endDate": "2026-03-28T21:00:00.000Z",
-      "allDay": false,
-      "location": "Van Cortlandt Park, Bronx, NY",
-      "type": "tournament",
-      "team": "both",
-      "recurring": {
-        "enabled": false
-      },
-      "source": "local",
-      "status": "confirmed"
-    },
-    {
       "id": "local-tournament-spring-fling-day1-2026",
       "uid": "local-tournament-spring-fling-day1-2026",
       "title": "🏆 Spring Fling - Day 1",
