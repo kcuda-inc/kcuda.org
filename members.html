@@ -154,13 +154,21 @@
                 }
             }
 
+            // Tournaments section divider
+            const visibleTournaments = (data.tournaments || []).filter(t => (t.links || []).some(matchesFilter));
+            if (visibleTournaments.length > 0) {
+                html += '<div class="border-t-2 border-gray-200 mt-8 pt-6">';
+                html += '<h2 class="text-2xl font-bold text-gray-800 mb-6">Tournaments</h2>';
+                html += '</div>';
+            }
+
             (data.tournaments || []).forEach((t, i) => {
                 const visibleLinks = (t.links || []).filter(matchesFilter);
                 if (visibleLinks.length === 0) return;
-                html += `<div class="border-t pt-6 ${i < data.tournaments.length - 1 ? 'mb-6' : ''}">`;
+                html += `<div class="${i > 0 ? 'border-t pt-6 ' : ''}${i < data.tournaments.length - 1 ? 'mb-6' : ''}">`;
                 html += `<h3 class="text-lg font-bold bg-indigo-700 text-white px-4 py-2 rounded-lg mb-4">${escapeHtml(t.name)}: ${escapeHtml(t.date)}, ${escapeHtml(t.location)}</h3>`;
                 if (t.description) {
-                    html += `<p class="text-gray-600 mb-3">${escapeHtml(t.description)}</p>`;
+                    html += `<div class="bg-gray-50 border-l-4 border-indigo-400 p-4 mb-4"><p class="text-gray-700">${escapeHtml(t.description)}</p></div>`;
                 }
                 html += '<p class="text-gray-700 font-semibold mb-2">Links/Forms:</p>';
                 html += '<ul class="space-y-2 ml-1">';
