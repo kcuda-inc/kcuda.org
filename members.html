@@ -126,9 +126,10 @@
                 html += '<div class="space-y-1">';
                 teams.forEach(t => {
                     if (contacts[t]) {
-                        const text = escapeHtml(contacts[t]);
-                        const linked = text.replace(/([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-indigo-600 hover:text-indigo-800 underline">$1</a>');
-                        html += `<p class="text-gray-700 text-sm"><span class="font-medium">${escapeHtml(labels[t] || t)}:</span> ${linked}</p>`;
+                        const text = escapeHtml(contacts[t])
+                            .replace(/\n/g, '<br>')
+                            .replace(/([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-indigo-600 hover:text-indigo-800 underline">$1</a>');
+                        html += `<div class="text-gray-700 text-sm mb-2"><span class="font-medium">${escapeHtml(labels[t] || t)}:</span><br>${text}</div>`;
                     }
                 });
                 html += '</div></div>';
