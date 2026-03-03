@@ -83,17 +83,9 @@
 
     <script>
         // Handle logout
-        document.getElementById('logoutBtn').addEventListener('click', async function() {
-            try {
-                // Clear the authentication cookie
-                document.cookie = 'kcuda_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-
-                // Redirect to home page
-                window.location.href = '/index.html';
-            } catch (error) {
-                // Fallback: just redirect to home
-                window.location.href = '/index.html';
-            }
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.cookie = 'kcuda_auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.href = '/index.html';
         });
 
         // Load and display tournament hub
@@ -118,31 +110,46 @@
         }
 
         function renderTournamentHub() {
-            const data = hubData;
-            const filter = activeTeamFilter;
             const container = document.getElementById('tournament-hub');
 
-            let html = `<h2 class="text-2xl font-bold mb-4">${escapeHtml(data.title)}</h2>`;
-            html += `<p class="text-gray-700 mb-4">${escapeHtml(data.description)}</p>`;
+            let html = `<h2 class="text-2xl font-bold mb-4">${escapeHtml(hubData.title)}</h2>`;
+            html += `<p class="text-gray-700 mb-4">${escapeHtml(hubData.description)}</p>`;
+
+            // Team contacts
+            const contacts = hubData.teamContacts || {};
+            const teams = hubData.teams || [];
+            const labels = hubData.teamLabels || {};
+            const hasContacts = teams.some(t => contacts[t]);
+            if (hasContacts) {
+                html += '<div class="bg-gray-50 rounded-lg p-4 mb-6">';
+                html += '<h3 class="font-semibold text-gray-800 mb-2">Team Contacts</h3>';
+                html += '<div class="space-y-1">';
+                teams.forEach(t => {
+                    if (contacts[t]) {
+                        const text = escapeHtml(contacts[t]);
+                        const linked = text.replace(/([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="text-indigo-600 hover:text-indigo-800 underline">$1</a>');
+                        html += `<p class="text-gray-700 text-sm"><span class="font-medium">${escapeHtml(labels[t] || t)}:</span> ${linked}</p>`;
+                    }
+                });
+                html += '</div></div>';
+            }
 
             // Team filter pills
-            const teams = data.teams || [];
-            const labels = data.teamLabels || {};
             if (teams.length > 0) {
                 const activeCls = 'bg-indigo-600 text-white';
                 const inactiveCls = 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50';
                 html += '<div class="flex flex-wrap gap-2 mb-6">';
-                html += `<button onclick="setTeamFilter('all')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${filter === 'all' ? activeCls : inactiveCls}">All</button>`;
+                html += `<button onclick="setTeamFilter('all')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${activeTeamFilter === 'all' ? activeCls : inactiveCls}">All</button>`;
                 teams.forEach(t => {
-                    html += `<button onclick="setTeamFilter('${t}')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${filter === t ? activeCls : inactiveCls}">${escapeHtml(labels[t] || t)}</button>`;
+                    html += `<button onclick="setTeamFilter('${t}')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${activeTeamFilter === t ? activeCls : inactiveCls}">${escapeHtml(labels[t] || t)}</button>`;
                 });
                 html += '</div>';
             }
 
-            const matchesFilter = (link) => filter === 'all' || !link.team || link.team === 'all' || link.team === filter;
+            const matchesFilter = (link) => activeTeamFilter === 'all' || !link.team || link.team === 'all' || link.team === activeTeamFilter;
 
-            if (data.hubLinks && data.hubLinks.length > 0) {
-                const visibleHubLinks = data.hubLinks.filter(matchesFilter);
+            if (hubData.hubLinks && hubData.hubLinks.length > 0) {
+                const visibleHubLinks = hubData.hubLinks.filter(matchesFilter);
                 if (visibleHubLinks.length > 0) {
                     const colors = ['bg-indigo-600 hover:bg-indigo-700', 'bg-purple-600 hover:bg-purple-700'];
                     html += '<div class="flex flex-wrap gap-3 mb-8">';
@@ -155,17 +162,20 @@
             }
 
             // Tournaments section divider
-            const visibleTournaments = (data.tournaments || []).filter(t => (t.links || []).some(matchesFilter));
+            const visibleTournaments = (hubData.tournaments || []).filter(t => (t.links || []).some(matchesFilter));
             if (visibleTournaments.length > 0) {
                 html += '<div class="border-t-2 border-gray-200 mt-8 pt-6">';
-                html += '<h2 class="text-2xl font-bold text-gray-800 mb-6">Tournaments</h2>';
+                html += '<h2 class="text-2xl font-bold text-gray-800 mb-4">Tournaments</h2>';
+                if (hubData.tournamentsDescription) {
+                    html += `<div class="bg-gray-50 border-l-4 border-indigo-400 p-4 mb-6"><p class="text-gray-700">${escapeHtml(hubData.tournamentsDescription)}</p></div>`;
+                }
                 html += '</div>';
             }
 
-            (data.tournaments || []).forEach((t, i) => {
+            (hubData.tournaments || []).forEach((t, i) => {
                 const visibleLinks = (t.links || []).filter(matchesFilter);
                 if (visibleLinks.length === 0) return;
-                html += `<div class="${i > 0 ? 'border-t pt-6 ' : ''}${i < data.tournaments.length - 1 ? 'mb-6' : ''}">`;
+                html += `<div class="${i > 0 ? 'border-t pt-6 ' : ''}${i < hubData.tournaments.length - 1 ? 'mb-6' : ''}">`;
                 html += `<h3 class="text-lg font-bold bg-indigo-700 text-white px-4 py-2 rounded-lg mb-4">${escapeHtml(t.name)}: ${escapeHtml(t.date)}, ${escapeHtml(t.location)}</h3>`;
                 if (t.description) {
                     html += `<div class="bg-gray-50 border-l-4 border-indigo-400 p-4 mb-4"><p class="text-gray-700">${escapeHtml(t.description)}</p></div>`;
@@ -182,10 +192,10 @@
             container.innerHTML = html;
         }
 
+        const _escDiv = document.createElement('div');
         function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str || '';
-            return div.innerHTML;
+            _escDiv.textContent = str || '';
+            return _escDiv.innerHTML;
         }
 
         loadTournamentHub();
@@ -215,16 +225,16 @@
                 const recentUpdates = sortedUpdates.slice(0, 5);
 
                 // Build HTML for updates
+                const colorMap = {
+                    'indigo': 'border-indigo-400',
+                    'green': 'border-green-400',
+                    'purple': 'border-purple-400',
+                    'red': 'border-red-400',
+                    'blue': 'border-blue-400'
+                };
                 let html = '';
                 recentUpdates.forEach(update => {
                     const category = data.categories[update.category] || data.categories.general;
-                    const colorMap = {
-                        'indigo': 'border-indigo-400',
-                        'green': 'border-green-400',
-                        'purple': 'border-purple-400',
-                        'red': 'border-red-400',
-                        'blue': 'border-blue-400'
-                    };
                     const borderColor = colorMap[category.color] || 'border-gray-400';
 
                     // Format date

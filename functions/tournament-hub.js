@@ -1,9 +1,9 @@
+import { hasCookie } from './auth-utils.js';
+
 export async function onRequestGet(context) {
   const { request, env } = context;
 
-  // Require members or admin auth
-  const cookies = request.headers.get('Cookie') || '';
-  if (!cookies.includes('kcuda_auth=verified') && !cookies.includes('kcuda_admin=verified')) {
+  if (!hasCookie(request, 'kcuda_auth=verified') && !hasCookie(request, 'kcuda_admin=verified')) {
     return new Response('Unauthorized', { status: 401 });
   }
 

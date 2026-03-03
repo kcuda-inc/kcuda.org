@@ -51,6 +51,13 @@
                 </div>
             </div>
 
+            <!-- Team Contacts -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-xl font-bold mb-4">Team Contacts</h2>
+                <p class="text-sm text-gray-500 mb-4">Contact info shown on the members page per team. Can include names and email addresses.</p>
+                <div id="teamContactsContainer" class="space-y-4"></div>
+            </div>
+
             <!-- Hub Links -->
             <div class="bg-white rounded-lg shadow p-6 mb-6">
                 <div class="flex items-center justify-between mb-4">
@@ -61,8 +68,15 @@
             </div>
 
             <!-- Tournaments -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-xl font-bold mb-4">Tournaments Section</h2>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Description (shown below "Tournaments" heading)</label>
+                    <textarea id="tournamentsDescription" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+            </div>
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-bold">Tournaments</h2>
+                <h2 class="text-xl font-bold">Tournament List</h2>
                 <button id="addTournament" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition">+ Add Tournament</button>
             </div>
             <div id="tournamentsContainer" class="space-y-6"></div>
@@ -86,8 +100,31 @@
         function renderAll() {
             document.getElementById('hubTitle').value = hubData.title || '';
             document.getElementById('hubDescription').value = hubData.description || '';
+            document.getElementById('tournamentsDescription').value = hubData.tournamentsDescription || '';
+            renderTeamContacts();
             renderHubLinks();
             renderTournaments();
+        }
+
+        function renderTeamContacts() {
+            const container = document.getElementById('teamContactsContainer');
+            const contacts = hubData.teamContacts || {};
+            const labels = hubData.teamLabels || {};
+            const teams = hubData.teams || [];
+            container.innerHTML = '';
+            teams.forEach(team => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <label class="block text-sm font-medium text-gray-700 mb-1">${escHtml(labels[team] || team)}</label>
+                    <input type="text" value="${escHtml(contacts[team] || '')}" placeholder="e.g. Coach Graham graham@example.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500" onchange="updateTeamContact('${team}', this.value)">
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function updateTeamContact(team, value) {
+            if (!hubData.teamContacts) hubData.teamContacts = {};
+            hubData.teamContacts[team] = value;
         }
 
         function renderHubLinks() {
@@ -144,6 +181,8 @@
             });
         }
 
+        let dragState = null;
+
         function createLinkRow(link, index, type, tournamentIndex) {
             const row = document.createElement('div');
             row.className = 'flex gap-2 items-center';
@@ -184,8 +223,8 @@
                 else renderTournaments();
             });
 
-            const labels = (hubData && hubData.teamLabels) || {};
-            const teams = (hubData && hubData.teams) || [];
+            const labels = hubData.teamLabels || {};
+            const teams = hubData.teams || [];
             const allSelected = (!link.team || link.team === 'all') ? ' selected' : '';
             let teamOptions = `<option value="all"${allSelected}>All Teams</option>`;
             teams.forEach(t => {
@@ -202,12 +241,10 @@
             return row;
         }
 
-        let dragState = null;
-
+        const _escDiv = document.createElement('div');
         function escHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str || '';
-            return div.innerHTML.replace(/"/g, '&quot;');
+            _escDiv.textContent = str || '';
+            return _escDiv.innerHTML.replace(/"/g, '&quot;');
         }
 
         function updateLink(type, tournamentIndex, linkIndex, field, value) {
@@ -268,9 +305,10 @@
             btn.disabled = true;
             btn.textContent = 'Saving...';
 
-            // Sync title/description from inputs
+            // Sync fields from inputs
             hubData.title = document.getElementById('hubTitle').value;
             hubData.description = document.getElementById('hubDescription').value;
+            hubData.tournamentsDescription = document.getElementById('tournamentsDescription').value;
 
             try {
                 const response = await fetch('/admin-save', {

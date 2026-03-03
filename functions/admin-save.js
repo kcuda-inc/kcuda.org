@@ -1,9 +1,9 @@
+import { hasCookie } from './auth-utils.js';
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
-  // Require admin auth
-  const cookies = request.headers.get('Cookie') || '';
-  if (!cookies.includes('kcuda_admin=verified')) {
+  if (!hasCookie(request, 'kcuda_admin=verified')) {
     return new Response('Unauthorized', { status: 401 });
   }
 
@@ -14,7 +14,6 @@ export async function onRequestPost(context) {
 
     const body = await request.json();
 
-    // Basic validation
     if (!body.title || !body.tournaments || !Array.isArray(body.tournaments)) {
       return new Response('Invalid data: title and tournaments array required', { status: 400 });
     }

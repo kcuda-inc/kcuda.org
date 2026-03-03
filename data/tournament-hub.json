@@ -7,6 +7,12 @@
     "tech-b": "Tech Support B",
     "disco": "Disco Tech"
   },
+  "teamContacts": {
+    "tech-a": "",
+    "tech-b": "",
+    "disco": ""
+  },
+  "tournamentsDescription": "",
   "hubLinks": [],
   "tournaments": [
     {
