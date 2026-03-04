@@ -152,13 +152,11 @@
             if (hubData.hubLinks && hubData.hubLinks.length > 0) {
                 const visibleHubLinks = hubData.hubLinks.filter(matchesFilter);
                 if (visibleHubLinks.length > 0) {
-                    const colors = ['bg-indigo-600 hover:bg-indigo-700', 'bg-purple-600 hover:bg-purple-700'];
-                    html += '<div class="flex flex-wrap gap-3 mb-8">';
-                    visibleHubLinks.forEach((link, i) => {
-                        const color = colors[i % colors.length];
-                        html += `<a href="${escapeHtml(link.url)}" class="inline-flex items-center ${color} text-white font-semibold py-2 px-5 rounded-lg transition">${escapeHtml(link.label)}</a>`;
+                    html += '<ul class="space-y-2 mb-8 ml-1">';
+                    visibleHubLinks.forEach(link => {
+                        html += `<li><a href="${escapeHtml(link.url)}" class="text-indigo-600 hover:text-indigo-800 underline">${escapeHtml(link.label)}</a></li>`;
                     });
-                    html += '</div>';
+                    html += '</ul>';
                 }
             }
 
