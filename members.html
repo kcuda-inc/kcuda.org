@@ -137,12 +137,12 @@
 
             // Team filter pills
             if (teams.length > 0) {
-                const activeCls = 'bg-indigo-600 text-white';
-                const inactiveCls = 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50';
-                html += '<div class="flex flex-wrap gap-2 mb-6">';
-                html += `<button onclick="setTeamFilter('all')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${activeTeamFilter === 'all' ? activeCls : inactiveCls}">All</button>`;
+                const activeCls = 'bg-indigo-600 text-white shadow-md';
+                const inactiveCls = 'bg-gray-200 text-gray-700 hover:bg-gray-300';
+                html += '<div class="flex flex-wrap gap-3 mb-6">';
+                html += `<button onclick="setTeamFilter('all')" class="px-6 py-2 rounded-full text-base font-semibold transition ${activeTeamFilter === 'all' ? activeCls : inactiveCls}">All</button>`;
                 teams.forEach(t => {
-                    html += `<button onclick="setTeamFilter('${t}')" class="px-4 py-1.5 rounded-full text-sm font-medium transition ${activeTeamFilter === t ? activeCls : inactiveCls}">${escapeHtml(labels[t] || t)}</button>`;
+                    html += `<button onclick="setTeamFilter('${t}')" class="px-6 py-2 rounded-full text-base font-semibold transition ${activeTeamFilter === t ? activeCls : inactiveCls}">${escapeHtml(labels[t] || t)}</button>`;
                 });
                 html += '</div>';
             }
