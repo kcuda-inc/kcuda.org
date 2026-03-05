@@ -78,9 +78,27 @@
         </div>
     </section>
 
+    <!-- DST Warning -->
+    <div class="bg-yellow-50 border-b-2 border-yellow-400">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center">
+            <span class="text-2xl mr-3">&#9200;</span>
+            <p class="text-yellow-800 font-semibold">Daylight Saving Time starts Saturday night! Don't forget to spring forward.</p>
+        </div>
+    </div>
+
     <!-- Main Content -->
     <section class="py-16 px-4">
         <div class="max-w-4xl mx-auto">
+
+            <!-- Tournament Guide Link -->
+            <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-lg mb-8 flex items-center justify-between">
+                <div>
+                    <p class="font-semibold text-indigo-800">Tournament Guide</p>
+                    <p class="text-sm text-gray-600">Full details including maps, field rules, and day-of logistics</p>
+                </div>
+                <a href="https://docs.google.com/document/d/1_X9rUaVtEfkfBGn_dKMhgdMowniuCKTr_enyGHJGKNo/edit" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-5 rounded-lg transition whitespace-nowrap ml-4">View Guide</a>
+            </div>
+
             <!-- About the Tournament -->
             <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
                 <h2 class="text-3xl font-bold text-indigo-600 mb-4">About the Tournament</h2>
@@ -154,22 +172,26 @@
                             <svg class="w-6 h-6 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            Format
+                            Schedule
                         </h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-start">
-                                <span class="text-indigo-600 mr-2">•</span>
-                                <span><strong>AM Session (Boys/Bx):</strong> Pool A (Varsity) and Pool B &mdash; 9:00 AM &ndash; 12:40 PM</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-indigo-600 mr-2">•</span>
-                                <span><strong>PM Session (Boys B / Girls):</strong> Pool C (Boys B) and Pool D (Girls) &mdash; 1:00 PM &ndash; 4:40 PM</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-indigo-600 mr-2">•</span>
-                                <span><strong>Games Per Team:</strong> 2 pool play games on 4 fields</span>
-                            </li>
-                        </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="font-semibold text-indigo-700 mb-2">AM Session (Boys/Bx)</p>
+                                <ul class="space-y-1 text-sm">
+                                    <li><strong>8:00 AM</strong> &ndash; Tournament Central Opens</li>
+                                    <li><strong>8:30 AM</strong> &ndash; Coaches/Captains Meeting</li>
+                                    <li><strong>9:00 AM</strong> &ndash; First Pull</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-indigo-700 mb-2">PM Session (Boys B / Girls)</p>
+                                <ul class="space-y-1 text-sm">
+                                    <li><strong>12:30 PM</strong> &ndash; Coaches/Captains Meeting</li>
+                                    <li><strong>1:00 PM</strong> &ndash; First Pull</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-3"><strong>Games Per Team:</strong> 2 pool play games on 4 fields</p>
                     </div>
                 </div>
             </div>
@@ -308,9 +330,23 @@
                         <p class="font-semibold text-green-800 mb-2">Field Amenities:</p>
                         <ul class="text-gray-700 space-y-1">
                             <li>New turf fields</li>
-                            <li>Bathrooms on site</li>
-                            <li>Athletic trainer available</li>
-                            <li>Water access</li>
+                            <li>Bathrooms at Bay &amp; Columbia corner (close around 3:45 PM)</li>
+                            <li>Athletic trainer / first aid at Tournament Central</li>
+                            <li>Water and snacks available</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-4">
+                        <p class="font-semibold text-blue-800 mb-2">Parking:</p>
+                        <p class="text-gray-700">On-street parking with ample availability on Bay St, Columbia St, Henry St, and Sigourney St.</p>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+                        <p class="font-semibold text-red-800 mb-2">Field Rules:</p>
+                        <ul class="text-gray-700 space-y-1">
+                            <li>No canopies on the fields</li>
+                            <li>Please use bathrooms behind Tournament Central at Columbia/Bay St</li>
+                            <li>Please pick up all trash and leave the fields cleaner than you found them</li>
                         </ul>
                     </div>
                 </div>
@@ -340,7 +376,12 @@
                 </div>
                 <div class="border-t border-white border-opacity-30 pt-6 mt-6">
                     <p class="font-semibold mb-2">Questions?</p>
-                    <p>Contact Mark Dicus at <a href="mailto:mark@kcuda.org" class="underline">mark@kcuda.org</a></p>
+                    <p class="mb-1">Contact Mark Dicus at <a href="mailto:mark@kcuda.org" class="underline">mark@kcuda.org</a></p>
+                    <p class="font-semibold mt-4 mb-2">Day-Of Contacts:</p>
+                    <ul class="space-y-1">
+                        <li>AM Session: Mark Dicus &ndash; <a href="tel:+13472442763" class="underline">347-244-2763</a></li>
+                        <li>PM Session: Makela Spielman &ndash; <a href="tel:+13472282971" class="underline">347-228-2971</a></li>
+                    </ul>
                 </div>
             </div>
 
