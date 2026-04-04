@@ -12,7 +12,7 @@ export async function onRequest(context) {
   }
 
   // Protect members pages with members cookie
-  if (['/members.html', '/members', '/members-calendar.html', '/members-calendar'].includes(url.pathname)) {
+  if (['/members.html', '/members', '/members-calendar.html', '/members-calendar', '/coaches-members.html', '/coaches-members'].includes(url.pathname)) {
     if (!hasCookie(request, 'kcuda_auth=verified')) {
       return Response.redirect(new URL('/members-login.html', request.url), 302);
     }
