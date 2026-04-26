@@ -16,16 +16,17 @@ Fetch the current Givebutter fundraiser numbers, update `support.html`, commit, 
 
 ### 1. Fetch current numbers
 
-Use WebFetch on the fundraiser URL with prompt: "What is the current amount raised and the goal amount for this fundraiser? Return just the numbers."
+Use WebFetch on the fundraiser URL with prompt: "What is the current amount raised, the goal amount, and the number of supporters/donors for this fundraiser? Return just the numbers."
 
 ### 2. Update `support.html`
 
-Four values live together in the "HSNI Campaign Thermometer" section (around lines 60–78):
+Five values live together in the "HSNI Campaign Thermometer" section (around lines 60–84):
 
 - **Raised** — `<span class="text-3xl md:text-4xl font-bold text-indigo-600">$X,XXX</span>`
 - **Goal** — `<span class="text-xl font-bold text-gray-700">$XX,XXX</span>`
 - **Bar width** — `style="width: XX.X%; min-width: 2.5rem;"` (one decimal place, e.g. `32.9%`)
 - **Bar label** — `<span class="text-white text-sm font-bold">XX%</span>` (rounded integer, e.g. `33%`)
+- **Supporter count** — `<span class="font-semibold text-indigo-600">XX</span> supporters and counting`
 
 Compute the percentage: `raised / goal * 100`. Round the bar label to nearest integer; use one decimal for the bar width.
 
