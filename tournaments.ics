@@ -8,25 +8,25 @@ METHOD:PUBLISH
 X-WR-TIMEZONE:America/New_York
 
 BEGIN:VEVENT
-UID:disco-tech-hat-2025@kcuda.org
-DTSTAMP:20250129T024000Z
-DTSTART:20251115T140000Z
-DTEND:20251115T200000Z
+UID:disco-tech-hat-2026@kcuda.org
+DTSTAMP:20260912T140000Z
+DTSTART:20261114T140000Z
+DTEND:20261114T200000Z
 SUMMARY:Brooklyn Disco Tech Support Hat Tournament
-DESCRIPTION:4th Annual Brooklyn Disco Tech Support Hat Tournament - A fun day of mixed gender youth ultimate frisbee! Open to 7th-12th grade players. $10 per player. Registration: https://kcuda.org/tournaments/disco-tech-hat.html
-LOCATION:Prospect Park Parade Grounds, Brooklyn, NY 11215
+DESCRIPTION:5th Annual Brooklyn Disco Tech Support Hat Tournament - A fun day of mixed gender youth ultimate frisbee! Open to 8th-12th grade players. $15 per player. Registration coming soon: https://kcuda.org/tournaments/disco-tech-hat.html
+LOCATION:Prospect Park Parade Grounds, Field 1/2, Brooklyn, NY 11226
 URL:https://kcuda.org/tournaments/disco-tech-hat.html
 STATUS:CONFIRMED
 END:VEVENT
 
 BEGIN:VEVENT
-UID:hucksgiving-2025@kcuda.org
-DTSTAMP:20250129T024000Z
-DTSTART:20251122T140000Z
-DTEND:20251122T200000Z
+UID:hucksgiving-2026@kcuda.org
+DTSTAMP:20260912T140000Z
+DTSTART:20261121T120000Z
+DTEND:20261121T210000Z
 SUMMARY:Hucksgiving Showdown
-DESCRIPTION:High school team-based ultimate tournament in Brooklyn. Single-day straight to bracket tournament. All teams guaranteed 3 games. Boys & Girls divisions. Registration: https://kcuda.org/tournaments/hucksgiving.html
-LOCATION:Prospect Park Parade Grounds, Brooklyn, NY 11215
+DESCRIPTION:High school team-based ultimate tournament in Brooklyn. Full day (8am-5pm) across 4 fields. Up to 16 teams. Free for Brooklyn Disco Tech & Tech Support; $200/team for outside teams. Registration coming soon: https://kcuda.org/tournaments/hucksgiving.html
+LOCATION:Prospect Park Parade Grounds, Fields 7/8/10/11, Brooklyn, NY 11226
 URL:https://kcuda.org/tournaments/hucksgiving.html
 STATUS:CONFIRMED
 END:VEVENT
