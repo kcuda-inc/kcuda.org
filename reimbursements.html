@@ -1,198 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reimbursement Requests - KCUDA</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        }
-        .nav-dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(4px);
-            transition: opacity 150ms ease, transform 150ms ease, visibility 150ms;
-        }
-        .nav-dropdown:hover .nav-dropdown-menu,
-        .nav-dropdown:focus-within .nav-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .nav-dropdown-chevron {
-            transition: transform 150ms ease;
-        }
-        .nav-dropdown:hover .nav-dropdown-chevron,
-        .nav-dropdown:focus-within .nav-dropdown-chevron {
-            transform: rotate(180deg);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KCUDA Reimbursement Requests</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: matches kcuda.org - light grey ground, white rounded cards with soft shadow, indigo accents, Figtree throughout. */
+:root {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --fg: #1f2937;
+  --muted: #4b5563;
+  --line: #e5e7eb;
+  --accent: #4f46e5;
+  --accent-fg: #ffffff;
+  --accent-soft: #ffffff;
+  --shadow: 0 1px 3px rgba(17,24,39,.08), 0 1px 2px rgba(17,24,39,.05);
+  --font-display: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111827; --surface: #1f2937; --fg: #f3f4f6; --muted: #9ca3af;
+    --line: #374151; --accent: #818cf8; --accent-fg: #111827; --accent-soft: #1f2937;
+    --shadow: 0 1px 3px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111827; --surface: #1f2937; --fg: #f3f4f6; --muted: #9ca3af;
+  --line: #374151; --accent: #818cf8; --accent-fg: #111827; --accent-soft: #1f2937;
+  --shadow: 0 1px 3px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 16px; padding-block: 40px 64px;
+}
+main { max-width: 44rem; margin: 0 auto; display: grid; gap: 24px; }
+.eyebrow { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); font-weight: 700; }
+h2 { font-size: 1.35rem; font-weight: 600; margin-bottom: 12px; }
+.lede { color: var(--muted); margin: 10px 0 0; max-width: 36rem; }
+.submit {
+  background: var(--accent-soft); border-radius: 8px; box-shadow: var(--shadow);
+  padding: 24px; display: grid; gap: 14px;
+}
+main > section:not(.submit) { background: var(--surface); border-radius: 8px; box-shadow: var(--shadow); padding: 24px; }
+h2 { color: var(--accent); }
+.submit p { margin: 0; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--accent); color: var(--accent-fg); text-decoration: none;
+  font-weight: 700; font-size: 1.05rem; padding: 12px 22px; border-radius: 6px;
+  justify-self: start;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible, .copy:focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+.fine { font-size: .9rem; color: var(--muted); }
+ul.check { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+ul.check li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; }
+ul.check li::before {
+  content: ""; width: 16px; height: 16px; margin-top: 5px;
+  border: 2px solid var(--accent); border-radius: 4px;
+}
+ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 16px; }
+ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+ol.steps > li::before {
+  content: counter(s); width: 30px; height: 30px; border-radius: 50%;
+  background: var(--accent); color: var(--accent-fg); font-weight: 600;
+  display: grid; place-items: center; font-size: .95rem;
+}
+ol.steps > li > div { min-width: 0; padding-top: 2px; }
+.pay {
+  margin: 12px 0 0; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); overflow: hidden;
+}
+.pay div { display: grid; grid-template-columns: 7rem 1fr; gap: 12px; padding: 10px 14px; }
+.pay div + div { border-top: 1px solid var(--line); }
+.pay dt { font-weight: 600; }
+.pay dd { margin: 0; color: var(--muted); min-width: 0; }
+.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); gap: 12px; margin-top: 16px; }
+.term { border-top: 3px solid var(--accent); padding-top: 8px; }
+.term strong { display: block; font-family: var(--font-display); font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.term span { color: var(--muted); font-size: .95rem; }
+.contact { border-top: 1px solid var(--line); padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.contact p { margin: 0; }
+.eyebrow a { color: inherit; text-decoration: none; }
+.eyebrow a:hover { color: var(--accent); }
+.site { flex-basis: 100%; color: var(--muted); }
+.site a { color: var(--accent); font-weight: 600; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.email { font-weight: 600; user-select: all; }
+.copy {
+  font: inherit; font-size: .9rem; background: var(--surface); color: var(--fg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 5px 12px; cursor: pointer;
+}
+@media (max-width: 480px) {
+  .pay div { grid-template-columns: 1fr; gap: 2px; }
+  .btn { justify-self: stretch; }
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md relative z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <a href="index.html" class="text-2xl font-bold text-indigo-600">KCUDA</a>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center">
-                    <a href="learn-to-play.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Learn to Play</a>
-                    <div class="nav-dropdown relative">
-                        <a href="index.html#teams" class="px-3 py-2 inline-flex items-center gap-1 text-indigo-600 font-semibold">
-                            Teams
-                            <svg class="nav-dropdown-chevron w-4 h-4 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </a>
-                        <div class="nav-dropdown-menu absolute left-0 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
-                            <a href="index.html#disco-tech" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Disco Tech</a>
-                            <a href="index.html#tech-support" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Tech Support</a>
-                            <a href="coaches.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Coaches</a>
-                            <a href="tournaments.html" class="block px-4 py-2 text-indigo-600 font-semibold bg-indigo-50">Tournaments</a>
-                            <a href="members.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Members</a>
-                        </div>
-                    </div>
-                    <a href="support.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Support</a>
-                    <a href="board.html" class="px-3 py-2 text-gray-700 hover:text-indigo-600">Board</a>
-                </div>
-                <div class="flex items-center md:hidden">
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="p-2 text-gray-700 hover:text-indigo-600" aria-label="Toggle menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 px-4 py-3 space-y-1">
-            <a href="learn-to-play.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Learn to Play</a>
-            <a href="index.html#disco-tech" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Disco Tech</a>
-            <a href="index.html#tech-support" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Tech Support</a>
-            <a href="coaches.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Coaches</a>
-            <a href="tournaments.html" class="block px-4 py-2 text-indigo-600 font-semibold bg-indigo-50 rounded-md">Tournaments</a>
-            <a href="members.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Members</a>
-            <a href="support.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Support</a>
-            <a href="board.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">Board</a>
-        </div>
-    </nav>
+<body>
+<main>
+  <header>
+    <p class="eyebrow"><a href="https://www.kcuda.org" target="_blank" rel="noopener">KCUDA</a></p>
+    <h1>Reimbursement Requests</h1>
+    <p class="lede">Thank you for making a purchase on behalf of KCUDA! Submit your request through our online form and choose how you would like to be paid back.</p>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Reimbursement Requests</h1>
-            <p class="text-xl md:text-2xl mb-6">Thank you for making a purchase on behalf of KCUDA! Submit your request through our online form and choose how you would like to be paid back.</p>
-            <a href="https://app.moneyminder.com/reimbursement-forms/55f3d3365a4fb2bfa78f21de86b3113fca9e073f5d23bf87efc6aac287d60368/new" target="_blank" rel="noopener" class="inline-block bg-white text-indigo-700 font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300">
-                Open the reimbursement form →
-            </a>
-        </div>
-    </section>
+  <section class="submit" aria-label="Submit a request">
+    <p><strong>Ready to submit?</strong> The form takes a few minutes.</p>
+    <a class="btn" href="https://app.moneyminder.com/reimbursement-forms/55f3d3365a4fb2bfa78f21de86b3113fca9e073f5d23bf87efc6aac287d60368/new" target="_blank" rel="noopener">Open the reimbursement form &rarr;</a>
+  </section>
 
-    <!-- Quick Info Section -->
-    <section class="py-8 bg-white shadow-md">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-indigo-600 mb-4">Before you start</h2>
-            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                <li>Have your itemized receipts ready as photos or PDFs.</li>
-                <li>Know what the purchase was for (the event, program or committee).</li>
-                <li>Decide how you would like to be paid: Zelle, Venmo, PayPal or check.</li>
-            </ul>
-        </div>
-    </section>
+  <section>
+    <h2>Before you start</h2>
+    <ul class="check">
+      <li><span>Have your itemized receipts ready as photos or PDFs.</span></li>
+      <li><span>Know what the purchase was for (the event, program or committee).</span></li>
+      <li><span>Decide how you would like to be paid: Zelle, Venmo, PayPal or check.</span></li>
+    </ul>
+  </section>
 
-    <!-- Main Content -->
-    <section class="py-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- How to Submit -->
-            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-indigo-600 mb-6">How to submit</h2>
-                <ol class="list-decimal list-inside text-gray-700 space-y-4">
-                    <li class="font-semibold text-gray-800">Open the link.</li>
-                    <li class="font-semibold text-gray-800">Enter your name and email.</li>
-                    <li class="font-semibold text-gray-800">For each expense, add the date, vendor, amount and a short description.</li>
-                    <li class="font-semibold text-gray-800">Upload a receipt for every item.</li>
-                    <li class="font-semibold text-gray-800 mb-2">Designate how you would like to be paid:</li>
-                    <dl class="ml-6 space-y-3 text-gray-700 mb-4">
-                        <div class="flex">
-                            <dt class="font-medium text-gray-800 mr-3">Zelle:</dt>
-                            <dd>The email or phone number linked to your Zelle account</dd>
-                        </div>
-                        <div class="flex">
-                            <dt class="font-medium text-gray-800 mr-3">Venmo:</dt>
-                            <dd>Your Venmo username (@handle)</dd>
-                        </div>
-                        <div class="flex">
-                            <dt class="font-medium text-gray-800 mr-3">PayPal:</dt>
-                            <dd>The email linked to your PayPal account</dd>
-                        </div>
-                        <div class="flex">
-                            <dt class="font-medium text-gray-800 mr-3">Check:</dt>
-                            <dd>Mailing address (for mailed paper check)</dd>
-                        </div>
-                    </dl>
-                    <li class="font-semibold text-gray-800">Check the total and click Submit. You'll get an email saying your request was received.</li>
-                </ol>
-            </div>
+  <section>
+    <h2>How to submit</h2>
+    <ol class="steps">
+      <li><div>Open the link.</div></li>
+      <li><div>Enter your name and email.</div></li>
+      <li><div>For each expense, add the date, the vendor, the amount and a short description.</div></li>
+      <li><div>Upload a receipt for every item.</div></li>
+      <li><div>Designate how you would like to be paid, then enter the matching details:
+        <dl class="pay">
+          <div><dt>Zelle</dt><dd>The email or phone number linked to your Zelle account</dd></div>
+          <div><dt>Venmo</dt><dd>Your Venmo username (@handle)</dd></div>
+          <div><dt>PayPal</dt><dd>The email linked to your PayPal account</dd></div>
+          <div><dt>Check</dt><dd>Mailing address (for mailed paper check)</dd></div>
+        </dl>
+      </div></li>
+      <li><div>Check the total and click Submit. You'll get an email saying your request was received.</div></li>
+    </ol>
+  </section>
 
-            <!-- After You Submit -->
-            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
-                <h2 class="text-3xl font-bold text-indigo-600 mb-6">After you submit</h2>
-                <p class="text-gray-700 mb-6">Your request will be reviewed and approved, or followed up with questions if applicable.</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-indigo-50 border-l-4 border-indigo-600 p-4 rounded-lg">
-                        <div class="text-xl font-bold text-indigo-700 mb-1">60 days</div>
-                        <p class="text-gray-600 text-sm">Please submit within 60 days of purchase</p>
-                    </div>
-                    <div class="bg-green-50 border-l-4 border-green-600 p-4 rounded-lg">
-                        <div class="text-xl font-bold text-green-700 mb-1">~10 days</div>
-                        <p class="text-gray-600 text-sm">Payment sent within ~10 days of approval</p>
-                    </div>
-                </div>
-            </div>
+  <section>
+    <h2>After you submit</h2>
+    <p style="margin:0">Your request will be reviewed and approved, or followed up with questions if applicable.</p>
+    <div class="terms">
+      <div class="term"><strong>60 days</strong><span>Please submit within 60 days of purchase</span></div>
+      <div class="term"><strong>~10 days</strong><span>Payment sent within ~10 days of approval</span></div>
+    </div>
+  </section>
 
-            <!-- Contact -->
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-3xl font-bold text-indigo-600 mb-6">Contact</h2>
-                <div class="bg-gray-50 border-l-4 border-indigo-500 p-6 rounded-lg">
-                    <p class="text-gray-700 mb-2">Questions? Contact our Treasurer:</p>
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl font-bold text-indigo-600">treasurer@kcuda.org</span>
-                        <button id="copy-email" class="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-100 transition">Copy email</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="contact">
+    <p>Questions? Contact <span class="email" id="email">treasurer@kcuda.org</span></p>
+    <button class="copy" id="copy-email" type="button">Copy email</button>
+  </footer>
+</main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center">
-                <p class="mb-4">&copy; 2026 Kings County Ultimate Disc Association (KCUDA)</p>
-                <p class="text-gray-400">Promoting, developing, and supporting Ultimate Frisbee in Brooklyn and NYC</p>
-            </div>
-        </div>
-    </footer>
+<script>
+document.getElementById('copy-email').addEventListener('click', function () {
+  var btn = this, text = 'treasurer@kcuda.org';
+  function done() { btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy email'; }, 1800); }
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Selected — press Ctrl/Cmd+C';
+  }
+  try {
+    navigator.clipboard.writeText(text).then(done, fallback);
+  } catch (e) { fallback(); }
+});
+</script>
 
-    <script>
-        document.getElementById('copy-email').addEventListener('click', function() {
-            var btn = this, text = 'treasurer@kcuda.org';
-            function done() {
-                btn.textContent = 'Copied';
-                setTimeout(function() { btn.textContent = 'Copy email'; }, 1800);
-            }
-            function fallback() {
-                var r = document.createRange();
-                r.selectNodeContents(document.querySelector('.text-2xl.font-bold'));
-                var s = window.getSelection();
-                s.removeAllRanges();
-                s.addRange(r);
-                btn.textContent = 'Selected — press Ctrl/Cmd+C';
-            }
-            try {
-                navigator.clipboard.writeText(text).then(done, fallback);
-            } catch(e) { fallback(); }
-        });
-    </script>
 </body>
 </html>
