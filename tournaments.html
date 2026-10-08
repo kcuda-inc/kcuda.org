@@ -6,6 +6,18 @@
     <title>Tournaments - KCUDA</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
+        /* Tailwind 2.2.19 has no orange palette; define the orange utilities used on Hucksgiving */
+        .text-orange-600 { color: #ea580c; }
+        .text-orange-700 { color: #c2410c; }
+        .text-orange-800 { color: #9a3412; }
+        .bg-orange-50 { background-color: #fff7ed; }
+        .bg-orange-100 { background-color: #ffedd5; }
+        .bg-orange-600 { background-color: #ea580c; }
+        .hover\:bg-orange-700:hover { background-color: #c2410c; }
+        .border-orange-200 { border-color: #fed7aa; }
+        .border-orange-500 { border-color: #f97316; }
+        .from-orange-600 { --tw-gradient-from: #ea580c; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 88, 12, 0)); }
+        .to-red-600 { --tw-gradient-to: #dc2626; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
